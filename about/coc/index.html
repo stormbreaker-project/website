@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News · Team StormBreaker</title>
-  <meta name="description" content="Latest news, releases and announcements from Team StormBreaker." />
+  <title>Code of Conduct · Team StormBreaker</title>
+  <meta name="description" content="The Team StormBreaker community Code of Conduct." />
   <meta name="theme-color" content="#0a0a12" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,13 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
 
-  <!-- Styles (only what this page uses) -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/sections.css" />
-  <link rel="stylesheet" href="/css/news.css" />
+  <link rel="stylesheet" href="/css/article.css" />
   <link rel="stylesheet" href="/css/footer.css" />
 
   <!-- Apply theme before first paint to avoid a flash (must stay inline). -->
@@ -34,8 +33,6 @@
   <script src="/js/theme.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/reveal.js" defer></script>
-  <script src="/js/news-core.js" defer></script>
-  <script src="/js/news-list.js" defer></script>
 </head>
 <body>
   <div class="storm-bg"></div>
@@ -95,17 +92,69 @@
     </div>
   </header>
 
+  <!-- ====================================================================
+       EDIT ME: this is a starter Code of Conduct. Replace the prose below
+       with your team's official wording whenever you're ready.
+       ==================================================================== -->
   <main>
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">Newsroom</span>
-          <h2>News &amp; releases</h2>
-          <p>Kernel drops, project updates and announcements from Team StormBreaker.</p>
-        </div>
+        <article class="article">
+          <a class="back" href="/about.html">← Back to About</a>
+          <header class="article-head">
+            <span class="tag">Community</span>
+            <h1>Code of Conduct</h1>
+            <div class="meta">Applies to all StormBreaker spaces — repos, chats and events</div>
+          </header>
 
-        <p class="news-status" id="news-status">Loading news…</p>
-        <div class="news-grid" id="news-grid"></div>
+          <div class="prose">
+            <h2>Our pledge</h2>
+            <p>
+              We as members, contributors and maintainers pledge to make participation in the
+              Team StormBreaker community a harassment-free experience for everyone, regardless of
+              age, body size, disability, ethnicity, gender identity and expression, level of
+              experience, nationality, personal appearance, race, religion, or sexual identity and
+              orientation.
+            </p>
+
+            <h2>Our standards</h2>
+            <p>Examples of behavior that helps build a positive environment:</p>
+            <ul>
+              <li>Being respectful of differing viewpoints and experiences</li>
+              <li>Giving and gracefully accepting constructive feedback</li>
+              <li>Focusing on what is best for the community and its users</li>
+              <li>Showing empathy toward other community members</li>
+            </ul>
+            <p>Examples of unacceptable behavior:</p>
+            <ul>
+              <li>Harassment, insults, or derogatory comments, public or private</li>
+              <li>Trolling, or deliberately disruptive behavior</li>
+              <li>Publishing others’ private information without explicit permission</li>
+              <li>Any conduct which could reasonably be considered inappropriate</li>
+            </ul>
+
+            <h2>Enforcement</h2>
+            <p>
+              Community maintainers are responsible for clarifying and enforcing these standards and
+              will take appropriate, fair corrective action in response to any behavior they deem
+              inappropriate, threatening, or harmful.
+            </p>
+
+            <h2>Reporting</h2>
+            <p>
+              Instances of abusive or otherwise unacceptable behavior may be reported to the team at
+              <a href="mailto:team.stormbreakerproject@gmail.com">team.stormbreakerproject@gmail.com</a>.
+              All complaints will be reviewed and investigated promptly and fairly.
+            </p>
+
+            <hr />
+            <p>
+              This Code of Conduct is adapted from the
+              <a href="https://www.contributor-covenant.org" target="_blank" rel="noopener">Contributor Covenant</a>,
+              version 2.1.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
