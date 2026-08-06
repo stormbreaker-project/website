@@ -1,0 +1,26 @@
+/* Maintainers page — people cards. */
+.maintainer-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+.maintainer-card {
+  display: flex; align-items: center; gap: 16px;
+  width: 340px; max-width: 100%;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px 22px; transition: transform .2s, border-color .25s, box-shadow .3s;
+}
+.maintainer-card:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+
+.mavatar {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  flex: 0 0 auto; border: 1px solid var(--border);
+}
+.mavatar-fallback {
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: var(--brand-text);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem;
+}
+
+.minfo h3 { font-size: 1.15rem; }
+.minfo .mrole { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.minfo .mhandle { color: var(--brand); font-size: .85rem; margin-top: 6px; }
+
+.maintainers-cta { text-align: center; margin-top: 44px; color: var(--muted); }

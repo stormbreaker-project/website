@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MAINTAINERS } from '../../data/maintainers';
+import '../../styles/maintainers.css';
+---
+<Base title="Maintainers · Team StormBreaker" description="The people who build and maintain Team StormBreaker kernels.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">The team</span>
+          <h2>Maintainers</h2>
+          <p>The people who build and maintain StormBreaker kernels.</p>
+        </div>
+
+        <div class="maintainer-grid">
+          {MAINTAINERS.map((m) => (
+            <a
+              class="maintainer-card reveal"
+              href={m.github ? `https://github.com/${m.github}` : '#'}
+              target={m.github ? '_blank' : undefined}
+              rel={m.github ? 'noopener' : undefined}
+            >
+              {m.github ? (
+                <img class="mavatar" src={`https://github.com/${m.github}.png?size=160`} alt="" width="64" height="64" loading="lazy" />
+              ) : (
+                <span class="mavatar mavatar-fallback">{m.name.charAt(0)}</span>
+              )}
+              <div class="minfo">
+                <h3>{m.name}</h3>
+                <div class="mrole">{m.role}</div>
+                {m.github && <div class="mhandle">@{m.github}</div>}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <p class="maintainers-cta">
+          Want to maintain a device? Read the <a href="/contribute/guide/">contributing guide</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+</Base>
