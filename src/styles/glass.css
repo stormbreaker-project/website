@@ -1,0 +1,10 @@
+/* Reusable frosted-glass surface (Apple-ish "liquid glass" approximation).
+   Uses the theme-aware --glass-* tokens. Apply sparingly — backdrop-filter
+   is GPU-heavy, so keep it to hero surfaces, not long scrolling lists. */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+}

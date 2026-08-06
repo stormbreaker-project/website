@@ -18,6 +18,13 @@
   --brand-text: #0a1020;       /* text/icon colour on brand-filled surfaces */
   --glow: rgba(199, 231, 255, 0.4);
 
+  /* Frosted-glass surfaces */
+  --glass-bg: rgba(22, 24, 44, 0.45);
+  --glass-border: rgba(199, 231, 255, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --glass-blur: 16px;
+
   --header-bg: rgba(8,8,15,0.6);
   --header-bg-scrolled: rgba(8,8,15,0.82);
   --menu-bg: rgba(8,8,15,0.97);
@@ -42,8 +49,19 @@
   --brand-text: #ffffff;
   --glow: rgba(47, 111, 224, 0.28);
 
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-highlight: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 10px 30px rgba(31, 40, 80, 0.10);
+
   --header-bg: rgba(255,255,255,0.7);
   --header-bg-scrolled: rgba(255,255,255,0.85);
   --menu-bg: rgba(255,255,255,0.97);
   --btn-ghost-bg: rgba(20,20,42,0.03);
+}
+
+/* Where backdrop-filter isn't supported, fall back to a solid surface so
+   glassy panels stay readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glass-bg: var(--surface); }
 }

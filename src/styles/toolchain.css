@@ -1,9 +1,13 @@
 /* Toolchain banner — StormBreaker Clang callout. */
 .banner {
-  position: relative; border: 1px solid var(--border); border-radius: 22px; overflow: hidden;
-  padding: 48px; background:
+  position: relative; border: 1px solid var(--glass-border); border-radius: 22px; overflow: hidden;
+  padding: 48px;
+  background:
     radial-gradient(600px 300px at 90% 20%, rgba(var(--brand-rgb),0.18), transparent 60%),
-    var(--surface);
+    var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
 .banner .txt { max-width: 560px; }
