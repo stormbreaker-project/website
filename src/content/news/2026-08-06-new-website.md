@@ -6,7 +6,7 @@ author: Team StormBreaker
 summary: Our kernels, news and community now live under one roof at stormbreaker.squadri.me.
 ---
 
-We're thrilled to launch the **new Team StormBreaker website** — a single place for
+We're thrilled to launch the **new Team StormBreaker website**, a single place for
 our kernels, releases, and everything happening across the project.
 
 ## What's new
@@ -19,8 +19,8 @@ our kernels, releases, and everything happening across the project.
 
 Every article you see here is a `.md` file under `news/` in our
 [website repo](https://github.com/stormbreaker-project/website). Adding a post is as
-simple as dropping a new Markdown file and committing it — no build step, no database.
+simple as dropping a new Markdown file and committing it. No build step, no database.
 
 > Want to contribute an update for your device? Open a PR. We'd love to have you.
 
-Stay tuned — more device kernels and mainline ports are on the way. ⚡
+Stay tuned. More device kernels and mainline ports are on the way. ⚡

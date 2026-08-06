@@ -7,7 +7,7 @@ const { device } = Astro.props;
 const { name, codename, start, end, upcoming, note } = device;
 
 const active = end === 'present';
-const period = upcoming ? '' : active ? `${start} – present` : end ? `${start} – ${end}` : start;
+const period = upcoming ? '' : active ? `${start} to present` : end ? `${start} to ${end}` : start;
 
 // Link to the org repo search for this codename (avoids guessing exact slugs).
 const term = codename.split(/[\s/]+/)[0];

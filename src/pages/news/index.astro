@@ -19,7 +19,7 @@ const posts = (await getCollection('news')).sort(
         </div>
 
         {posts.length === 0 ? (
-          <p class="news-status">No news yet — check back soon.</p>
+          <p class="news-status">No news yet. Check back soon.</p>
         ) : (
           <div class="news-grid">
             {posts.map((post) => <NewsCard post={post} />)}

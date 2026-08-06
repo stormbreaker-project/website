@@ -1,5 +1,5 @@
 // Single source of truth for site metadata, social links and the nav.
-// Add/rename a nav item here and every page updates — the header is one component.
+// Add/rename a nav item here and every page updates. The header is one component.
 
 export const SITE = {
   name: 'Team StormBreaker',

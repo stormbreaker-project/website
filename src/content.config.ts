@@ -1,4 +1,4 @@
-// News content collection — every Markdown file in src/content/news/ becomes a
+// News content collection. Every Markdown file in src/content/news/ becomes a
 // statically-generated post page at build time (no client-side fetching).
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';

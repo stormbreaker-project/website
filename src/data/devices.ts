@@ -70,7 +70,7 @@ const dateValue = (s: string): number => {
 const lastSeen = (d: Device): string => (d.end && d.end !== 'present' ? d.end : d.start);
 
 // Year a device is filed under on the Devices page (its end / last-maintained year).
-export const deviceYear = (d: Device): string => lastSeen(d).match(/\d{4}/)?.[0] ?? '—';
+export const deviceYear = (d: Device): string => lastSeen(d).match(/\d{4}/)?.[0] ?? 'Other';
 
 // Higher = more recently maintained.
 export const recencyValue = (d: Device): number => dateValue(lastSeen(d));
