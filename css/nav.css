@@ -82,7 +82,18 @@ header.scrolled { border-bottom-color: var(--border); background: var(--header-b
   transition: background .15s, color .15s;
 }
 .dropdown-menu a:hover { background: var(--btn-ghost-bg); color: var(--text); }
-.dropdown-menu a svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.dropdown-menu a svg,
+.dropdown-menu .is-soon svg { width: 16px; height: 16px; flex: 0 0 auto; }
+
+/* Placeholder (not-yet-available) dropdown item */
+.dropdown-menu .is-soon {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px;
+  color: var(--faint); font-size: .9rem; font-weight: 500; cursor: default;
+}
+.dropdown-menu .soon-badge {
+  margin-left: auto; font-size: .62rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--accent); border: 1px solid rgba(53,224,212,0.3); border-radius: 5px; padding: 1px 6px;
+}
 
 /* On mobile the dropdown expands inline inside the collapsed menu. */
 @media (max-width: 820px) {
