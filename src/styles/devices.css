@@ -1,0 +1,35 @@
+/* Device showcase — cards + per-year grouping. */
+.device-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+.device-card {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px;
+  transition: transform .2s, border-color .25s, box-shadow .3s;
+}
+.device-card:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+
+.device-card .dc-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.device-card .codename { font-family: 'Space Grotesk', sans-serif; font-size: 1.18rem; font-weight: 700; }
+.device-card .dc-active {
+  font-size: .66rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--accent); border: 1px solid rgba(53,224,212,0.3); background: rgba(53,224,212,0.08);
+  padding: 2px 8px; border-radius: 999px;
+}
+.device-card .dc-name { color: var(--text); font-size: .95rem; font-weight: 500; }
+.device-card .dc-period { color: var(--faint); font-size: .82rem; margin-top: 12px; }
+
+/* Per-year sections on the Devices page */
+.device-year { margin-bottom: 44px; }
+.device-year:last-child { margin-bottom: 0; }
+.device-year-label {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: var(--brand);
+  letter-spacing: .5px; margin-bottom: 18px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Home-page preview CTA */
+.devices-cta { text-align: center; margin-top: 36px; }
+
+@media (max-width: 860px) { .device-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .device-grid { grid-template-columns: 1fr; } }

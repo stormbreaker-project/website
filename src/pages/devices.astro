@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import DeviceCard from '../components/DeviceCard.astro';
+import { DEVICES, isActive, byActiveThenNewest, type Device } from '../data/devices';
+import '../styles/devices.css';
+
+// Active devices are pinned to their own section up top; everything else is
+// grouped by start year, newest year first.
+const active = DEVICES.filter(isActive).sort(byActiveThenNewest);
+
+const yearOf = (d: Device) => (d.start.match(/\d{4}/)?.[0]) ?? '—';
+const groups: Record<string, Device[]> = {};
+for (const d of DEVICES.filter((d) => !isActive(d)).sort(byActiveThenNewest)) {
+  (groups[yearOf(d)] ??= []).push(d);
+}
+const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+---
+<Base title="Devices · Team StormBreaker" description="Every device Team StormBreaker has built kernels for since October 2019.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">7 years of kernels</span>
+          <h2>Devices we've built for</h2>
+          <p>Every phone StormBreaker has shipped a kernel for, from our first releases in October 2019 to today. {DEVICES.length} devices and counting.</p>
+        </div>
+
+        {active.length > 0 && (
+          <div class="device-year">
+            <h3 class="device-year-label">Active</h3>
+            <div class="device-grid">
+              {active.map((d) => <DeviceCard device={d} />)}
+            </div>
+          </div>
+        )}
+
+        {years.map((y) => (
+          <div class="device-year">
+            <h3 class="device-year-label">{y}</h3>
+            <div class="device-grid">
+              {groups[y].map((d) => <DeviceCard device={d} />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Base>

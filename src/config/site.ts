@@ -5,7 +5,7 @@ export const SITE = {
   name: 'Team StormBreaker',
   url: 'https://stormbreaker.squadri.me',
   description:
-    'Team StormBreaker builds fast, clean and actively-maintained custom Linux kernels for Android devices — Xiaomi, Poco, OnePlus, Realme and more.',
+    'Custom Android kernels by Team StormBreaker with over a million downloads across dozens of devices since October 2019, built in the open.',
   download: 'https://sourceforge.net/projects/stormbreakerdevices/files/',
 };
 
@@ -34,6 +34,7 @@ export type NavItem =
 
 export const NAV: NavItem[] = [
   { label: 'News', href: '/news/' },
+  { label: 'Devices', href: '/devices/' },
   { label: 'About', href: '/about/' },
   {
     label: 'Community',

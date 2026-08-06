@@ -4,13 +4,13 @@ import Icon from '../components/Icon.astro';
 import { SOCIAL } from '../config/site';
 import '../styles/about.css';
 
-// EDIT ME: placeholder history — rewrite the lead and these milestones.
 const milestones = [
-  { year: '2019', title: 'The storm begins', body: 'Team StormBreaker is formed to build custom kernels for popular budget Android devices.' },
-  { year: '2020 – 2021', title: 'Going wide', body: 'Support expands across Xiaomi, Poco, OnePlus and Realme devices, with a growing community of testers and maintainers.' },
-  { year: '2022', title: 'Our own toolchain & CI', body: 'StormBreaker Clang lands — an optimized compiler powering reproducible builds — alongside automated CI for faster, cleaner releases.' },
-  { year: '2023 – 2024', title: 'Unified sources', body: 'Flagship kernels like surya mature into unified, upstream-tracked sources trusted by thousands of users.' },
-  { year: '2025 – today', title: 'Toward mainline', body: 'We begin porting devices to the mainline Linux kernel, laying the groundwork for longer-lived, more maintainable device support.' },
+  { year: 'October 2019', title: 'The first spark', body: 'Team StormBreaker launches with our first batch of devices — a small group of enthusiasts building better kernels for the phones we actually carried.' },
+  { year: 'Late 2019 – 2020', title: 'It caught fire', body: 'Our releases spread fast across Telegram communities and XDA, and StormBreaker quickly became a familiar name in the custom-kernel scene — on its way to a million-plus downloads.' },
+  { year: '2020 – 2021', title: 'A growing team', body: 'A handful of maintainers joined to bring StormBreaker to more and more devices, turning a side project into a real community effort.' },
+  { year: '2021 – 2023', title: 'Deep under the hood', body: 'LTS merges, ACK merges, backports, upstream releases and Custom ROM integrations — the serious kernel work we became known for.' },
+  { year: 'Along the way', title: 'StormBreaker Clang', body: 'We built our own optimized in-house Clang toolchain to compile our kernels — a project that is now on pause, and one we intend to revive.' },
+  { year: '2024 – today', title: 'The lull, and what’s next', body: 'As life pulled contributors in different directions, active development and community support slowed. Everything we built is still here — and we’re rebuilding, starting with this new home.' },
 ];
 ---
 <Base title="About · Team StormBreaker" description="The story of Team StormBreaker — a community building custom Android kernels since 2019.">
@@ -20,14 +20,16 @@ const milestones = [
         <div class="section-head">
           <span class="kicker">Our story</span>
           <h2>About Team StormBreaker</h2>
-          <p>A community of developers building fast, clean custom Android kernels — in the open, since 2019.</p>
+          <p>A volunteer community building custom Android kernels — in the open, since October 2019.</p>
         </div>
 
         <p class="about-lead">
-          StormBreaker started as a small group of enthusiasts chasing better performance and battery
-          life on the phones we actually carried. Years later, we maintain kernels across dozens of
-          devices, ship our own toolchain, and are pushing toward mainline Linux — all still
-          community-run and fully open source.
+          Team StormBreaker began in October 2019 as a small group of enthusiasts building better
+          kernels for the phones we actually carried. What started with a handful of devices grew into
+          a name known across XDA and the Telegram custom-kernel scene — over a million downloads, a
+          team of device maintainers, and deep upstream work. Life eventually pulled contributors in
+          different directions and things slowed down, but the sources, the community and the legacy
+          are all still here.
         </p>
 
         <div class="timeline">

@@ -1,24 +1,25 @@
 ---
 import Icon from '../Icon.astro';
 import { SOCIAL } from '../../config/site';
+import { DEVICES } from '../../data/devices';
 
 const stats = [
-  { num: '30+', lbl: 'Devices' },
+  { num: '1M+', lbl: 'Downloads' },
+  { num: `${DEVICES.length}`, lbl: 'Devices' },
+  { num: '7', lbl: 'Years' },
   { num: '57', lbl: 'Repositories' },
-  { num: '6+', lbl: 'Years shipping' },
-  { num: 'C · ARM64', lbl: 'Built on' },
 ];
 ---
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="dot"></span> Custom Android Kernels · Since 2019</span>
+    <span class="eyebrow reveal"><span class="dot"></span> Custom Android Kernels · Since October 2019</span>
     <h1 class="reveal">Kernels forged in<br /><span class="grad">the storm.</span></h1>
     <p class="lead reveal">
-      Team StormBreaker builds fast, clean and actively-maintained custom Linux kernels for Android
-      devices — squeezing every bit of performance and battery out of the hardware you already own.
+      Since October 2019, Team StormBreaker has brought fast, clean custom Linux kernels to Android —
+      over a million downloads across {DEVICES.length} devices, built in the open by a volunteer community.
     </p>
     <div class="hero-cta reveal">
-      <a class="btn btn-primary" href="#kernels">Explore kernels <Icon name="arrowRight" /></a>
+      <a class="btn btn-primary" href="#devices">Explore devices <Icon name="arrowRight" /></a>
       <a class="btn btn-ghost" href={SOCIAL.github} target="_blank" rel="noopener">View on GitHub</a>
     </div>
 

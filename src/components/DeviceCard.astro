@@ -1,0 +1,23 @@
+---
+import type { Device } from '../data/devices';
+export interface Props {
+  device: Device;
+}
+const { device } = Astro.props;
+const { name, codename, start, end } = device;
+
+const active = end === 'present';
+const period = active ? `${start} – present` : end ? `${start} – ${end}` : start;
+
+// Link to the org repo search for this codename (avoids guessing exact slugs).
+const term = codename.split(/[\s/]+/)[0];
+const href = `https://github.com/stormbreaker-project?q=${encodeURIComponent(term)}&type=repositories`;
+---
+<a class="device-card reveal" href={href} target="_blank" rel="noopener">
+  <div class="dc-top">
+    <span class="codename">{codename}</span>
+    {active && <span class="dc-active">Active</span>}
+  </div>
+  <div class="dc-name">{name}</div>
+  <div class="dc-period">{period}</div>
+</a>
