@@ -7,6 +7,7 @@ export type Device = {
   start: string;
   end: string;
   featured?: boolean;
+  upcoming?: boolean;
 };
 
 export const DEVICES: Device[] = [
@@ -34,6 +35,14 @@ export const DEVICES: Device[] = [
   { name: 'Realme U1', codename: 'RMX1831', start: '2021', end: '' },
   { name: 'Redmi K30 5G', codename: 'picasso', start: '2021', end: '' },
   { name: 'Realme 7 / Narzo 20 Pro / Narzo 30 4G', codename: 'salaa', start: '2024', end: '' },
+];
+
+// Work-in-progress devices (no release date yet).
+export const UPCOMING: Device[] = [
+  { name: 'Nothing 3a', codename: 'asteroids', start: '', end: '', upcoming: true },
+  { name: 'Pixel 9', codename: 'tokay', start: '', end: '', upcoming: true },
+  { name: 'Pixel 10', codename: 'frankel', start: '', end: '', upcoming: true },
+  { name: 'Redmi Note 8 Pro', codename: 'begonia', start: '', end: '', upcoming: true },
 ];
 
 export const isActive = (d: Device) => d.end === 'present';
