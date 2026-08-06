@@ -1,0 +1,88 @@
+---
+// Global CSS that every page needs (page-specific CSS is imported per page).
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/buttons.css';
+import '../styles/nav.css';
+import '../styles/sections.css';
+import '../styles/footer.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config/site';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = `${SITE.name} — Custom Android Kernels`,
+  description = SITE.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#0a0a12" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E"
+    />
+
+    <!-- Apply theme before first paint to avoid a flash (must stay inline). -->
+    <script is:inline>
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem('sb-theme');
+        } catch (e) {}
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="storm-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <Header />
+    <slot />
+    <Footer />
+
+    <script>
+      // Reveal-on-scroll, shared across every page.
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).style.transitionDelay = `${(i % 6) * 60}ms`;
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

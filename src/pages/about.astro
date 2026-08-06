@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SOCIAL } from '../config/site';
+import '../styles/about.css';
+
+// EDIT ME: placeholder history — rewrite the lead and these milestones.
+const milestones = [
+  { year: '2019', title: 'The storm begins', body: 'Team StormBreaker is formed to build custom kernels for popular budget Android devices.' },
+  { year: '2020 – 2021', title: 'Going wide', body: 'Support expands across Xiaomi, Poco, OnePlus and Realme devices, with a growing community of testers and maintainers.' },
+  { year: '2022', title: 'Our own toolchain & CI', body: 'StormBreaker Clang lands — an optimized compiler powering reproducible builds — alongside automated CI for faster, cleaner releases.' },
+  { year: '2023 – 2024', title: 'Unified sources', body: 'Flagship kernels like surya mature into unified, upstream-tracked sources trusted by thousands of users.' },
+  { year: '2025 – today', title: 'Toward mainline', body: 'We begin porting devices to the mainline Linux kernel, laying the groundwork for longer-lived, more maintainable device support.' },
+];
+---
+<Base title="About · Team StormBreaker" description="The story of Team StormBreaker — a community building custom Android kernels since 2019.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Our story</span>
+          <h2>About Team StormBreaker</h2>
+          <p>A community of developers building fast, clean custom Android kernels — in the open, since 2019.</p>
+        </div>
+
+        <p class="about-lead">
+          StormBreaker started as a small group of enthusiasts chasing better performance and battery
+          life on the phones we actually carried. Years later, we maintain kernels across dozens of
+          devices, ship our own toolchain, and are pushing toward mainline Linux — all still
+          community-run and fully open source.
+        </p>
+
+        <div class="timeline">
+          {milestones.map((m) => (
+            <div class="milestone">
+              <div class="year">{m.year}</div>
+              <h3>{m.title}</h3>
+              <p>{m.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="about-cta">
+          <a class="btn btn-primary" href={SOCIAL.github} target="_blank" rel="noopener">
+            <Icon name="github" /> Explore our work on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,20 @@
+{
+  "name": "stormbreaker-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && gh-pages -d dist --dotfiles -m \"Deploy site [skip ci]\"",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

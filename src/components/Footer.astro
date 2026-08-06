@@ -1,0 +1,18 @@
+---
+import { SOCIAL } from '../config/site';
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="/">
+      <span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18 2 6 18h7l-3 12 14-18h-8z" fill="#fff"/></svg></span>
+      <span class="brand-name">Storm<span>Breaker</span></span>
+    </a>
+    <div class="foot-links">
+      <a href={SOCIAL.github} target="_blank" rel="noopener">GitHub</a>
+      <a href={SOCIAL.twitter} target="_blank" rel="noopener">X / Twitter</a>
+      <a href={SOCIAL.guidelines} target="_blank" rel="noopener">Guidelines</a>
+    </div>
+    <div class="muted">© {year} Team StormBreaker · GPL-licensed · Made on Earth 🌍</div>
+  </div>
+</footer>

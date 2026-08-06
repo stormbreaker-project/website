@@ -1,0 +1,21 @@
+---
+import Icon from '../Icon.astro';
+import '../../styles/toolchain.css';
+---
+<section id="toolchain">
+  <div class="wrap">
+    <div class="banner reveal">
+      <div class="txt">
+        <h2>Powered by StormBreaker Clang</h2>
+        <p>
+          We ship our own optimized LLVM/Clang toolchain used to compile these kernels — reproducible
+          builds, modern optimizations and the same compiler our CI uses. Grab it from
+          <code>stormbreaker-clang</code>.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="https://github.com/stormbreaker-project/stormbreaker-clang" target="_blank" rel="noopener">
+        Get the toolchain <Icon name="arrowRight" />
+      </a>
+    </div>
+  </div>
+</section>

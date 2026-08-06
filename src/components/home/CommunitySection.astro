@@ -1,0 +1,19 @@
+---
+import Icon from '../Icon.astro';
+import { SOCIAL } from '../../config/site';
+import '../../styles/community.css';
+---
+<section id="community">
+  <div class="wrap community">
+    <div class="section-head reveal" style="margin-bottom:0">
+      <span class="kicker">Join the team</span>
+      <h2>Come build with us</h2>
+      <p>Maintainers, testers and the curious — everyone's welcome. Report a bug, request a device, or ship your first commit.</p>
+    </div>
+    <div class="social-row reveal">
+      <a class="social" href={SOCIAL.github} target="_blank" rel="noopener"><Icon name="github" /> GitHub</a>
+      <a class="social" href={SOCIAL.twitter} target="_blank" rel="noopener"><Icon name="twitter" /> @StormBreakerOSS</a>
+      <a class="social" href={`mailto:${SOCIAL.email}`}><Icon name="email" /> Email us</a>
+    </div>
+  </div>
+</section>

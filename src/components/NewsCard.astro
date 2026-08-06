@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+export interface Props {
+  post: CollectionEntry<'news'>;
+}
+const { post } = Astro.props;
+const { title, date, tag, summary, author } = post.data;
+const fmt = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+<a class="news-card" href={`/news/${post.id}/`}>
+  {tag && <span class="tag">{tag}</span>}
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <div class="meta">
+    <span>{fmt}</span>
+    {author && <span>· {author}</span>}
+    <span class="read">Read →</span>
+  </div>
+</a>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import '../../styles/news.css';
+
+const posts = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+<Base title="News · Team StormBreaker" description="Latest news, releases and announcements from Team StormBreaker.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Newsroom</span>
+          <h2>News &amp; releases</h2>
+          <p>Kernel drops, project updates and announcements from Team StormBreaker.</p>
+        </div>
+
+        {posts.length === 0 ? (
+          <p class="news-status">No news yet — check back soon.</p>
+        ) : (
+          <div class="news-grid">
+            {posts.map((post) => <NewsCard post={post} />)}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</Base>

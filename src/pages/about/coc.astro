@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SOCIAL } from '../../config/site';
+import '../../styles/article.css';
+---
+<Base title="Code of Conduct · Team StormBreaker" description="The Team StormBreaker community Code of Conduct.">
+  <main>
+    <section>
+      <div class="wrap">
+        <article class="article">
+          <a class="back" href="/about/">← Back to About</a>
+          <header class="article-head">
+            <span class="tag">Community</span>
+            <h1>Code of Conduct</h1>
+            <div class="meta">Applies to all StormBreaker spaces — repos, chats and events</div>
+          </header>
+
+          <!-- EDIT ME: starter Code of Conduct — replace with your official wording. -->
+          <div class="prose">
+            <h2>Our pledge</h2>
+            <p>
+              We as members, contributors and maintainers pledge to make participation in the Team
+              StormBreaker community a harassment-free experience for everyone, regardless of age, body
+              size, disability, ethnicity, gender identity and expression, level of experience,
+              nationality, personal appearance, race, religion, or sexual identity and orientation.
+            </p>
+
+            <h2>Our standards</h2>
+            <p>Examples of behavior that helps build a positive environment:</p>
+            <ul>
+              <li>Being respectful of differing viewpoints and experiences</li>
+              <li>Giving and gracefully accepting constructive feedback</li>
+              <li>Focusing on what is best for the community and its users</li>
+              <li>Showing empathy toward other community members</li>
+            </ul>
+            <p>Examples of unacceptable behavior:</p>
+            <ul>
+              <li>Harassment, insults, or derogatory comments, public or private</li>
+              <li>Trolling, or deliberately disruptive behavior</li>
+              <li>Publishing others’ private information without explicit permission</li>
+              <li>Any conduct which could reasonably be considered inappropriate</li>
+            </ul>
+
+            <h2>Enforcement</h2>
+            <p>
+              Community maintainers are responsible for clarifying and enforcing these standards and
+              will take appropriate, fair corrective action in response to any behavior they deem
+              inappropriate, threatening, or harmful.
+            </p>
+
+            <h2>Reporting</h2>
+            <p>
+              Instances of abusive or otherwise unacceptable behavior may be reported to the team at
+              <a href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>. All complaints will be reviewed and
+              investigated promptly and fairly.
+            </p>
+
+            <hr />
+            <p>
+              This Code of Conduct is adapted from the
+              <a href="https://www.contributor-covenant.org" target="_blank" rel="noopener">Contributor Covenant</a>, version 2.1.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Base>

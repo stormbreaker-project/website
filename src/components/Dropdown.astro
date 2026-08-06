@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import type { NavDropdownItem } from '../config/site';
+
+export interface Props {
+  label: string;
+  items: NavDropdownItem[];
+}
+const { label, items } = Astro.props;
+---
+<div class="nav-item has-dropdown">
+  <button type="button" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+    {label}
+    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="dropdown-menu" role="menu">
+    {items.map((it) =>
+      it.soon ? (
+        <span class="is-soon" aria-disabled="true">
+          <Icon name={it.icon} />
+          {it.label}
+          <span class="soon-badge">Soon</span>
+        </span>
+      ) : (
+        <a role="menuitem" href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+          <Icon name={it.icon} />
+          {it.label}
+        </a>
+      ),
+    )}
+  </div>
+</div>

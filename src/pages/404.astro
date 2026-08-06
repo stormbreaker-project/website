@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="404 — Lost in the storm · Team StormBreaker" description="Page not found.">
+  <main>
+    <section class="notfound">
+      <div class="wrap">
+        <svg class="bolt" viewBox="0 0 32 32" aria-hidden="true"><path d="M18 2 6 18h7l-3 12 14-18h-8z" fill="currentColor" /></svg>
+        <h1>404</h1>
+        <p>This page got struck by lightning and vanished.</p>
+        <a class="btn btn-primary" href="/">← Back to safety</a>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .notfound { text-align: center; padding: 120px 0; }
+  .notfound .bolt {
+    width: 64px; height: 64px; margin: 0 auto 20px; color: var(--brand);
+    filter: drop-shadow(0 0 22px var(--glow));
+  }
+  .notfound h1 {
+    font-size: clamp(4rem, 16vw, 8rem); line-height: 1; margin-bottom: 8px;
+    background: linear-gradient(120deg, var(--brand), var(--brand-2), var(--accent));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .notfound p { color: var(--muted); margin-bottom: 28px; font-size: 1.05rem; }
+</style>
