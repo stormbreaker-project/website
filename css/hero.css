@@ -1,0 +1,45 @@
+/* Hero — headline, eyebrow badge, CTA row, and the stats strip. */
+.hero { padding: 96px 0 84px; text-align: center; position: relative; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .8rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--muted); padding: 6px 14px; border: 1px solid var(--border);
+  border-radius: 999px; background: rgba(255,255,255,0.02); margin-bottom: 28px;
+}
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2.4s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.04; font-weight: 700;
+  letter-spacing: -1.5px; margin-bottom: 22px;
+}
+.hero h1 .grad {
+  background: linear-gradient(120deg, var(--brand) 10%, var(--brand-2) 50%, var(--accent) 95%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p.lead {
+  max-width: 640px; margin: 0 auto 38px; color: var(--muted);
+  font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+}
+.hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Stats ---------- */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; margin-top: 72px;
+}
+.stat { background: var(--surface); padding: 26px 18px; text-align: center; }
+.stat .num {
+  font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700;
+  background: linear-gradient(120deg, var(--text), var(--brand)); -webkit-background-clip: text;
+  background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat .lbl { font-size: .82rem; color: var(--faint); text-transform: uppercase; letter-spacing: .6px; margin-top: 4px; }
+
+@media (max-width: 860px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .hero { padding: 64px 0 56px; }
+}

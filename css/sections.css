@@ -1,0 +1,6 @@
+/* Shared section scaffolding — vertical rhythm + centered section heading. */
+section { padding: 82px 0; }
+.section-head { text-align: center; max-width: 620px; margin: 0 auto 52px; }
+.section-head .kicker { color: var(--brand); font-weight: 600; font-size: .85rem; letter-spacing: 1px; text-transform: uppercase; }
+.section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -.8px; margin: 10px 0 14px; }
+.section-head p { color: var(--muted); font-size: 1.05rem; }

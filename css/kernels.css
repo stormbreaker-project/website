@@ -1,0 +1,32 @@
+/* Featured kernels — responsive card grid with gradient hover border. */
+.kernel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.kernel {
+  position: relative; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; transition: transform .2s, border-color .25s, box-shadow .3s;
+  overflow: hidden;
+}
+.kernel::before {
+  content: ""; position: absolute; inset: 0; padding: 1px; border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--brand), transparent 40%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s;
+}
+.kernel:hover { transform: translateY(-4px); border-color: transparent; box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+.kernel:hover::before { opacity: 1; }
+.kernel .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.kernel .codename { font-family: 'Space Grotesk'; font-size: 1.28rem; font-weight: 700; }
+.kernel .stars { display: inline-flex; align-items: center; gap: 5px; font-size: .82rem; color: var(--faint); }
+.kernel .stars svg { width: 14px; height: 14px; fill: #ffcb45; }
+.kernel .device { color: var(--muted); font-size: .95rem; margin-bottom: 18px; }
+.kernel .foot { display: flex; align-items: center; justify-content: space-between; font-size: .85rem; }
+.kernel .chip { font-size: .72rem; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(53,224,212,0.25); background: rgba(53,224,212,0.06); padding: 3px 9px; border-radius: 6px; }
+.kernel .view { color: var(--brand); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+.kernel .view svg { width: 14px; height: 14px; transition: transform .2s; }
+.kernel:hover .view svg { transform: translate(2px,-2px); }
+
+@media (max-width: 860px) {
+  .kernel-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .kernel-grid { grid-template-columns: 1fr; }
+}

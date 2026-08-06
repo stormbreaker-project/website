@@ -1,0 +1,16 @@
+/* Toolchain banner — StormBreaker Clang callout. */
+.banner {
+  position: relative; border: 1px solid var(--border); border-radius: 22px; overflow: hidden;
+  padding: 48px; background:
+    radial-gradient(600px 300px at 90% 20%, rgba(124,92,255,0.18), transparent 60%),
+    var(--surface);
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.banner .txt { max-width: 560px; }
+.banner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.6px; }
+.banner p { color: var(--muted); }
+.banner code { font-family: 'Space Grotesk'; color: var(--accent); background: rgba(53,224,212,0.08); padding: 1px 7px; border-radius: 5px; }
+
+@media (max-width: 620px) {
+  .banner { padding: 32px 24px; }
+}

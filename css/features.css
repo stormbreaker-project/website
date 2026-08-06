@@ -1,0 +1,16 @@
+/* "Why StormBreaker" — two-column feature cards with icon tiles. */
+.feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.feature { display: flex; gap: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color .25s; }
+.feature:hover { border-color: var(--brand); }
+.feature .ico {
+  flex: 0 0 46px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+  background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(77,141,255,0.12));
+  border: 1px solid rgba(124,92,255,0.3);
+}
+.feature .ico svg { width: 22px; height: 22px; stroke: var(--brand); fill: none; stroke-width: 1.8; }
+.feature h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.feature p { color: var(--muted); font-size: .95rem; }
+
+@media (max-width: 860px) {
+  .feature-grid { grid-template-columns: 1fr; }
+}
