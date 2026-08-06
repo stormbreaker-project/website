@@ -2,7 +2,7 @@
 .banner {
   position: relative; border: 1px solid var(--border); border-radius: 22px; overflow: hidden;
   padding: 48px; background:
-    radial-gradient(600px 300px at 90% 20%, rgba(124,92,255,0.18), transparent 60%),
+    radial-gradient(600px 300px at 90% 20%, rgba(var(--brand-rgb),0.18), transparent 60%),
     var(--surface);
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }

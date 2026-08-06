@@ -4,8 +4,8 @@
 .feature:hover { border-color: var(--brand); }
 .feature .ico {
   flex: 0 0 46px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
-  background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(77,141,255,0.12));
-  border: 1px solid rgba(124,92,255,0.3);
+  background: linear-gradient(135deg, rgba(var(--brand-rgb),0.2), rgba(77,141,255,0.12));
+  border: 1px solid rgba(var(--brand-rgb),0.3);
 }
 .feature .ico svg { width: 22px; height: 22px; stroke: var(--brand); fill: none; stroke-width: 1.8; }
 .feature h3 { font-size: 1.15rem; margin-bottom: 6px; }

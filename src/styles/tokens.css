@@ -1,5 +1,6 @@
 /* Design tokens — color/theme variables, radius, layout width.
-   Dark is the default; [data-theme="light"] overrides the palette. */
+   Dark is the default; [data-theme="light"] overrides the palette.
+   --brand-rgb feeds every brand tint (glows, shadows, soft fills). */
 :root {
   --bg: #08080f;
   --bg-2: #0d0d1a;
@@ -9,10 +10,14 @@
   --text: #ececf5;
   --muted: #9a9ab5;
   --faint: #6b6b85;
-  --brand: #7c5cff;
+
+  --brand: #C7E7FF;            /* base brand colour */
+  --brand-rgb: 199, 231, 255;
   --brand-2: #4d8dff;
   --accent: #35e0d4;
-  --glow: rgba(124, 92, 255, 0.5);
+  --brand-text: #0a1020;       /* text/icon colour on brand-filled surfaces */
+  --glow: rgba(199, 231, 255, 0.4);
+
   --header-bg: rgba(8,8,15,0.6);
   --header-bg-scrolled: rgba(8,8,15,0.82);
   --menu-bg: rgba(8,8,15,0.97);
@@ -21,7 +26,7 @@
   --max: 1160px;
 }
 
-/* Light theme (first pass — colors to be refined later) */
+/* Light theme — brand darkens so it stays readable on light surfaces. */
 :root[data-theme="light"] {
   --bg: #f6f7fb;
   --bg-2: #eef0f7;
@@ -31,7 +36,12 @@
   --text: #14142a;
   --muted: #55566f;
   --faint: #8687a0;
-  --glow: rgba(124, 92, 255, 0.3);
+
+  --brand: #2f6fe0;
+  --brand-rgb: 47, 111, 224;
+  --brand-text: #ffffff;
+  --glow: rgba(47, 111, 224, 0.28);
+
   --header-bg: rgba(255,255,255,0.7);
   --header-bg-scrolled: rgba(255,255,255,0.85);
   --menu-bg: rgba(255,255,255,0.97);
