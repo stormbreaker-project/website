@@ -4,7 +4,7 @@ export interface Props {
   device: Device;
 }
 const { device } = Astro.props;
-const { name, codename, start, end, upcoming } = device;
+const { name, codename, start, end, upcoming, note } = device;
 
 const active = end === 'present';
 const period = upcoming ? '' : active ? `${start} – present` : end ? `${start} – ${end}` : start;
@@ -19,5 +19,6 @@ const href = `https://github.com/stormbreaker-project?q=${encodeURIComponent(ter
     {upcoming ? <span class="dc-wip">In progress</span> : active && <span class="dc-active">Active</span>}
   </div>
   <div class="dc-name">{name}</div>
+  {note && <div class="dc-note">{note}</div>}
   {period && <div class="dc-period">{period}</div>}
 </a>
