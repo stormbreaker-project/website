@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News · Team StormBreaker</title>
-  <meta name="description" content="A news post from Team StormBreaker." />
+  <title>About · Team StormBreaker</title>
+  <meta name="description" content="The story of Team StormBreaker — a community building custom Android kernels since 2019." />
   <meta name="theme-color" content="#0a0a12" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,12 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
 
+  <!-- Styles (only what this page uses) -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/sections.css" />
-  <link rel="stylesheet" href="/css/article.css" />
+  <link rel="stylesheet" href="/css/about.css" />
   <link rel="stylesheet" href="/css/footer.css" />
 
   <!-- Apply theme before first paint to avoid a flash (must stay inline). -->
@@ -33,9 +34,6 @@
   <script src="/js/theme.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/reveal.js" defer></script>
-  <script src="/js/vendor/marked.min.js" defer></script>
-  <script src="/js/news-core.js" defer></script>
-  <script src="/js/news-article.js" defer></script>
 </head>
 <body>
   <div class="storm-bg"></div>
@@ -76,18 +74,60 @@
     </div>
   </header>
 
+  <!-- ====================================================================
+       EDIT ME: everything inside <main> is placeholder history content.
+       Rewrite the lead paragraph and the .milestone entries below.
+       ==================================================================== -->
   <main>
     <section>
       <div class="wrap">
-        <article class="article">
-          <a class="back" href="/news.html">← Back to News</a>
-          <header class="article-head">
-            <span class="tag" id="article-tag" style="display:none"></span>
-            <h1 id="article-title">Loading…</h1>
-            <div class="meta" id="article-meta"></div>
-          </header>
-          <div class="prose" id="article-body"></div>
-        </article>
+        <div class="section-head">
+          <span class="kicker">Our story</span>
+          <h2>About Team StormBreaker</h2>
+          <p>A community of developers building fast, clean custom Android kernels — in the open, since 2019.</p>
+        </div>
+
+        <p class="about-lead">
+          StormBreaker started as a small group of enthusiasts chasing better performance and
+          battery life on the phones we actually carried. Years later, we maintain kernels across
+          dozens of devices, ship our own toolchain, and are pushing toward mainline Linux — all
+          still community-run and fully open source.
+        </p>
+
+        <div class="timeline">
+          <div class="milestone">
+            <div class="year">2019</div>
+            <h3>The storm begins</h3>
+            <p>Team StormBreaker is formed to build custom kernels for popular budget Android devices.</p>
+          </div>
+          <div class="milestone">
+            <div class="year">2020 – 2021</div>
+            <h3>Going wide</h3>
+            <p>Support expands across Xiaomi, Poco, OnePlus and Realme devices, with a growing community of testers and maintainers.</p>
+          </div>
+          <div class="milestone">
+            <div class="year">2022</div>
+            <h3>Our own toolchain &amp; CI</h3>
+            <p>StormBreaker Clang lands — an optimized compiler powering reproducible builds — alongside automated CI for faster, cleaner releases.</p>
+          </div>
+          <div class="milestone">
+            <div class="year">2023 – 2024</div>
+            <h3>Unified sources</h3>
+            <p>Flagship kernels like <strong>surya</strong> mature into unified, upstream-tracked sources trusted by thousands of users.</p>
+          </div>
+          <div class="milestone">
+            <div class="year">2025 – today</div>
+            <h3>Toward mainline</h3>
+            <p>We begin porting devices to the mainline Linux kernel, laying the groundwork for longer-lived, more maintainable device support.</p>
+          </div>
+        </div>
+
+        <div class="about-cta">
+          <a class="btn btn-primary" href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
+            Explore our work on GitHub
+          </a>
+        </div>
       </div>
     </section>
   </main>

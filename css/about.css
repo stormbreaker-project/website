@@ -1,0 +1,26 @@
+/* About page — intro lead + vertical history timeline. */
+.about-lead {
+  max-width: 760px; margin: 0 auto 56px; text-align: center;
+  color: var(--muted); font-size: clamp(1.02rem, 2.2vw, 1.18rem);
+}
+
+.timeline { max-width: 720px; margin: 0 auto; }
+
+.milestone {
+  position: relative; padding: 0 0 38px 34px;
+  border-left: 2px solid var(--border);
+}
+.milestone:last-child { border-left-color: transparent; padding-bottom: 0; }
+.milestone::before {
+  content: ""; position: absolute; left: -8px; top: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--brand); box-shadow: 0 0 0 4px var(--bg), 0 0 16px var(--glow);
+}
+.milestone .year {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  color: var(--brand); font-size: .92rem; letter-spacing: .5px;
+}
+.milestone h3 { font-size: 1.2rem; margin: 4px 0 8px; }
+.milestone p { color: var(--muted); }
+
+.about-cta { text-align: center; margin-top: 60px; }
