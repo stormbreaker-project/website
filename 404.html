@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Lost in the storm · Team StormBreaker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
+  <style>
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; color: #ececf5;
+      display: grid; place-items: center; text-align: center; padding: 24px;
+      background:
+        radial-gradient(800px 500px at 70% 0%, rgba(124,92,255,0.18), transparent 60%),
+        radial-gradient(700px 500px at 20% 100%, rgba(77,141,255,0.12), transparent 60%),
+        #08080f;
+    }
+    .bolt { width: 72px; height: 72px; margin: 0 auto 26px; filter: drop-shadow(0 0 26px rgba(124,92,255,0.6)); }
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(4rem, 16vw, 8rem); line-height: 1;
+      background: linear-gradient(120deg, #7c5cff, #4d8dff, #35e0d4); -webkit-background-clip: text;
+      background-clip: text; -webkit-text-fill-color: transparent; }
+    p { color: #9a9ab5; margin: 14px 0 30px; font-size: 1.05rem; }
+    a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: #fff; text-decoration: none;
+      padding: 12px 24px; border-radius: 11px; background: linear-gradient(135deg, #7c5cff, #4d8dff);
+      box-shadow: 0 6px 22px rgba(124,92,255,0.4); transition: transform .15s; }
+    a:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div>
+    <svg class="bolt" viewBox="0 0 32 32"><path d="M18 2 6 18h7l-3 12 14-18h-8z" fill="#7c5cff"/></svg>
+    <h1>404</h1>
+    <p>This page got struck by lightning and vanished.</p>
+    <a href="/">← Back to safety</a>
+  </div>
+</body>
+</html>

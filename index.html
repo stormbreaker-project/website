@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team StormBreaker — Custom Android Kernels</title>
+  <meta name="description" content="Team StormBreaker builds fast, clean, and actively-maintained custom Linux kernels for Android devices — Xiaomi, Poco, OnePlus, Realme and more." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Team StormBreaker — Custom Android Kernels" />
+  <meta property="og:description" content="Fast, clean, actively-maintained custom Linux kernels for Android devices." />
+  <meta property="og:url" content="https://stormbreaker.squadri.me/" />
+  <meta name="theme-color" content="#0a0a12" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --bg: #08080f;
+      --bg-2: #0d0d1a;
+      --surface: #12121f;
+      --surface-2: #16162a;
+      --border: #22223a;
+      --text: #ececf5;
+      --muted: #9a9ab5;
+      --faint: #6b6b85;
+      --brand: #7c5cff;
+      --brand-2: #4d8dff;
+      --accent: #35e0d4;
+      --glow: rgba(124, 92, 255, 0.5);
+      --radius: 16px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-name { font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Background storm ---------- */
+    .storm-bg {
+      position: fixed; inset: 0; z-index: -2; overflow: hidden;
+      background:
+        radial-gradient(1000px 600px at 80% -10%, rgba(124,92,255,0.16), transparent 60%),
+        radial-gradient(900px 700px at 10% 10%, rgba(77,141,255,0.12), transparent 55%),
+        radial-gradient(700px 700px at 50% 110%, rgba(53,224,212,0.08), transparent 60%),
+        var(--bg);
+    }
+    .grid-overlay {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(124,92,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,92,255,0.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+    }
+
+    /* ---------- Nav ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8,8,15,0.6);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, background .3s;
+    }
+    header.scrolled { border-bottom-color: var(--border); background: rgba(8,8,15,0.82); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; }
+    .brand .mark {
+      width: 32px; height: 32px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: 9px; box-shadow: 0 0 22px var(--glow);
+    }
+    .brand .mark svg { width: 18px; height: 18px; }
+    .brand-name { font-size: 1.06rem; letter-spacing: .2px; }
+    .brand-name span { color: var(--brand); }
+
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a.link { color: var(--muted); font-size: .93rem; font-weight: 500; transition: color .2s; }
+    .nav-links a.link:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 600; font-size: .92rem; padding: 10px 18px;
+      border-radius: 10px; border: 1px solid var(--border);
+      transition: transform .15s, box-shadow .25s, border-color .2s, background .2s;
+      cursor: pointer;
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-color: transparent; color: #fff;
+      box-shadow: 0 6px 22px rgba(124,92,255,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(124,92,255,0.5); }
+    .btn-ghost { background: rgba(255,255,255,0.02); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--brand); transform: translateY(-2px); }
+
+    .menu-toggle { display: none; background: none; border: 0; color: var(--text); cursor: pointer; padding: 6px; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 96px 0 84px; text-align: center; position: relative; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+      color: var(--muted); padding: 6px 14px; border: 1px solid var(--border);
+      border-radius: 999px; background: rgba(255,255,255,0.02); margin-bottom: 28px;
+    }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6.5vw, 4.6rem); line-height: 1.04; font-weight: 700;
+      letter-spacing: -1.5px; margin-bottom: 22px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--brand) 10%, var(--brand-2) 50%, var(--accent) 95%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p.lead {
+      max-width: 640px; margin: 0 auto 38px; color: var(--muted);
+      font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+    }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---------- Stats ---------- */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; margin-top: 72px;
+    }
+    .stat { background: var(--surface); padding: 26px 18px; text-align: center; }
+    .stat .num {
+      font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700;
+      background: linear-gradient(120deg, var(--text), var(--brand)); -webkit-background-clip: text;
+      background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat .lbl { font-size: .82rem; color: var(--faint); text-transform: uppercase; letter-spacing: .6px; margin-top: 4px; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 82px 0; }
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 52px; }
+    .section-head .kicker { color: var(--brand); font-weight: 600; font-size: .85rem; letter-spacing: 1px; text-transform: uppercase; }
+    .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -.8px; margin: 10px 0 14px; }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+    /* ---------- Kernels ---------- */
+    .kernel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .kernel {
+      position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; transition: transform .2s, border-color .25s, box-shadow .3s;
+      overflow: hidden;
+    }
+    .kernel::before {
+      content: ""; position: absolute; inset: 0; padding: 1px; border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--brand), transparent 40%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s;
+    }
+    .kernel:hover { transform: translateY(-4px); border-color: transparent; box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+    .kernel:hover::before { opacity: 1; }
+    .kernel .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .kernel .codename { font-family: 'Space Grotesk'; font-size: 1.28rem; font-weight: 700; }
+    .kernel .stars { display: inline-flex; align-items: center; gap: 5px; font-size: .82rem; color: var(--faint); }
+    .kernel .stars svg { width: 14px; height: 14px; fill: #ffcb45; }
+    .kernel .device { color: var(--muted); font-size: .95rem; margin-bottom: 18px; }
+    .kernel .foot { display: flex; align-items: center; justify-content: space-between; font-size: .85rem; }
+    .kernel .chip { font-size: .72rem; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(53,224,212,0.25); background: rgba(53,224,212,0.06); padding: 3px 9px; border-radius: 6px; }
+    .kernel .view { color: var(--brand); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+    .kernel .view svg { width: 14px; height: 14px; transition: transform .2s; }
+    .kernel:hover .view svg { transform: translate(2px,-2px); }
+
+    /* ---------- Features ---------- */
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature { display: flex; gap: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color .25s; }
+    .feature:hover { border-color: var(--brand); }
+    .feature .ico {
+      flex: 0 0 46px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(77,141,255,0.12));
+      border: 1px solid rgba(124,92,255,0.3);
+    }
+    .feature .ico svg { width: 22px; height: 22px; stroke: var(--brand); fill: none; stroke-width: 1.8; }
+    .feature h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .feature p { color: var(--muted); font-size: .95rem; }
+
+    /* ---------- Toolchain banner ---------- */
+    .banner {
+      position: relative; border: 1px solid var(--border); border-radius: 22px; overflow: hidden;
+      padding: 48px; background:
+        radial-gradient(600px 300px at 90% 20%, rgba(124,92,255,0.18), transparent 60%),
+        var(--surface);
+      display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+    }
+    .banner .txt { max-width: 560px; }
+    .banner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.6px; }
+    .banner p { color: var(--muted); }
+    .banner code { font-family: 'Space Grotesk'; color: var(--accent); background: rgba(53,224,212,0.08); padding: 1px 7px; border-radius: 5px; }
+
+    /* ---------- Community ---------- */
+    .community { text-align: center; }
+    .social-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+    .social {
+      display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 12px;
+      border: 1px solid var(--border); background: var(--surface); font-weight: 600; font-size: .95rem;
+      transition: transform .18s, border-color .2s, box-shadow .25s;
+    }
+    .social:hover { transform: translateY(-3px); border-color: var(--brand); box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+    .social svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--border); padding: 44px 0 40px; margin-top: 40px; }
+    .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .foot-inner .muted { color: var(--faint); font-size: .88rem; }
+    .foot-links { display: flex; gap: 22px; }
+    .foot-links a { color: var(--muted); font-size: .9rem; transition: color .2s; }
+    .foot-links a:hover { color: var(--text); }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .kernel-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 18px;
+        position: absolute; top: 68px; left: 0; right: 0; padding: 22px 24px;
+        background: rgba(8,8,15,0.97); border-bottom: 1px solid var(--border);
+      }
+      .menu-toggle { display: block; }
+      .kernel-grid { grid-template-columns: 1fr; }
+      .banner { padding: 32px 24px; }
+      .hero { padding: 64px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="storm-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <header id="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Team StormBreaker home">
+        <span class="mark">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18 2 6 18h7l-3 12 14-18h-8z" fill="#fff"/></svg>
+        </span>
+        <span class="brand-name">Storm<span>Breaker</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a class="link" href="#kernels">Kernels</a>
+        <a class="link" href="#features">Why</a>
+        <a class="link" href="#toolchain">Toolchain</a>
+        <a class="link" href="#community">Community</a>
+        <a class="btn btn-primary" href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow reveal"><span class="dot"></span> Custom Android Kernels · Since 2019</span>
+        <h1 class="reveal">Kernels forged in<br><span class="grad">the storm.</span></h1>
+        <p class="lead reveal">Team StormBreaker builds fast, clean and actively-maintained custom Linux kernels for Android devices — squeezing every bit of performance and battery out of the hardware you already own.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="#kernels">
+            Explore kernels
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat"><div class="num">30+</div><div class="lbl">Devices</div></div>
+          <div class="stat"><div class="num">57</div><div class="lbl">Repositories</div></div>
+          <div class="stat"><div class="num">6+</div><div class="lbl">Years shipping</div></div>
+          <div class="stat"><div class="num">C · ARM64</div><div class="lbl">Built on</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KERNELS -->
+    <section id="kernels">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Featured builds</span>
+          <h2>Kernels people actually flash</h2>
+          <p>Unified sources, upstream-tracked and tuned per device. Pick your codename and go.</p>
+        </div>
+
+        <div class="kernel-grid">
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project/kernel_xiaomi_surya" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">surya</span><span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6L18.5 21 12 17.3 5.5 21l1.8-7.3L2 9.1l7-.6z"/></svg>66</span></div>
+            <div class="device">Poco X3 &amp; X3 NFC — unified source</div>
+            <div class="foot"><span class="chip">Flagship</span><span class="view">Source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project/kernel_xiaomi_lavender" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">lavender</span><span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6L18.5 21 12 17.3 5.5 21l1.8-7.3L2 9.1l7-.6z"/></svg>39</span></div>
+            <div class="device">Redmi Note 7 / 7S</div>
+            <div class="foot"><span class="chip">Popular</span><span class="view">Source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project/kernel_poco_citrus" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">citrus</span><span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6L18.5 21 12 17.3 5.5 21l1.8-7.3L2 9.1l7-.6z"/></svg>25</span></div>
+            <div class="device">Poco M3 / Redmi 9T (Global)</div>
+            <div class="foot"><span class="chip">Popular</span><span class="view">Source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project/kernel_xiaomi_ginkgo" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">ginkgo</span><span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6L18.5 21 12 17.3 5.5 21l1.8-7.3L2 9.1l7-.6z"/></svg>7</span></div>
+            <div class="device">Redmi Note 8 / 8T</div>
+            <div class="foot"><span class="chip">Maintained</span><span class="view">Source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project/kernel_oneplus_avicii" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">avicii</span><span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6L18.5 21 12 17.3 5.5 21l1.8-7.3L2 9.1l7-.6z"/></svg>7</span></div>
+            <div class="device">OnePlus Nord</div>
+            <div class="foot"><span class="chip">Maintained</span><span class="view">Source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+
+          <a class="kernel reveal" href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">
+            <div class="top"><span class="codename">+ more</span><span class="stars">explore</span></div>
+            <div class="device">Realme, Asus, Nothing, Pixel &amp; mainline ports</div>
+            <div class="foot"><span class="chip">Org</span><span class="view">All repos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker">Why StormBreaker</span>
+          <h2>Built to perform, made to last</h2>
+          <p>Not just another overclock. Real engineering, tracked upstream and maintained in the open.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature reveal">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+            <div><h3>Tuned for speed</h3><p>Aggressive-yet-stable schedulers, governors and I/O tuning that make everyday scrolling and gaming noticeably smoother.</p></div>
+          </div>
+          <div class="feature reveal">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <div><h3>Upstream-tracked</h3><p>Regularly rebased on Linux-stable and CAF/mainline, so security patches and fixes land fast — including fresh mainline device ports.</p></div>
+          </div>
+          <div class="feature reveal">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div>
+            <div><h3>Battery-friendly</h3><p>Idle and thermal tuning that keeps drain in check without throttling the fun — better standby, cooler under load.</p></div>
+          </div>
+          <div class="feature reveal">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+            <div><h3>Fully open source</h3><p>Every line is on GitHub under GPL. Clone it, audit it, build it, send a PR — that's the whole point.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLCHAIN -->
+    <section id="toolchain">
+      <div class="wrap">
+        <div class="banner reveal">
+          <div class="txt">
+            <h2>Powered by StormBreaker Clang</h2>
+            <p>We ship our own optimized LLVM/Clang toolchain used to compile these kernels — reproducible builds, modern optimizations and the same compiler our CI uses. Grab it from <code>stormbreaker-clang</code>.</p>
+          </div>
+          <a class="btn btn-primary" href="https://github.com/stormbreaker-project/stormbreaker-clang" target="_blank" rel="noopener">
+            Get the toolchain
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community">
+      <div class="wrap community">
+        <div class="section-head reveal" style="margin-bottom:0">
+          <span class="kicker">Join the team</span>
+          <h2>Come build with us</h2>
+          <p>Maintainers, testers and the curious — everyone's welcome. Report a bug, request a device, or ship your first commit.</p>
+        </div>
+        <div class="social-row reveal">
+          <a class="social" href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a class="social" href="https://twitter.com/StormBreakerOSS" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.5l-5-6.6L5.7 22H2.5l7.8-8.9L1.6 2h6.6l4.6 6.1L18.9 2Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z"/></svg>
+            @StormBreakerOSS
+          </a>
+          <a class="social" href="mailto:team.stormbreakerproject@gmail.com">
+            <svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2 .8v.4l8 5 8-5v-.4H4Zm16 2.3-7.5 4.7a1 1 0 0 1-1 0L4 8.6v9.4h16V8.6Z"/></svg>
+            Email us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <a class="brand" href="#top">
+        <span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18 2 6 18h7l-3 12 14-18h-8z" fill="#fff"/></svg></span>
+        <span class="brand-name">Storm<span>Breaker</span></span>
+      </a>
+      <div class="foot-links">
+        <a href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/StormBreakerOSS" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://github.com/stormbreaker-project/maintainer-guidelines" target="_blank" rel="noopener">Guidelines</a>
+      </div>
+      <div class="muted">© <span id="year">2026</span> Team StormBreaker · GPL-licensed · Made on Earth 🌍</div>
+    </div>
+  </footer>
+
+  <script>
+    // Header shadow on scroll
+    const header = document.getElementById('site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile menu
+    const toggle = document.getElementById('menu-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { e.target.style.transitionDelay = (i % 6 * 60) + 'ms'; e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
