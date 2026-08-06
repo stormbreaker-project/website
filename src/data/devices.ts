@@ -59,13 +59,22 @@ const MONTHS: Record<string, number> = {
   Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12,
 };
 
-// A sortable number for a start date ("May 2021" -> 2021*12 + 5).
-export const startValue = (d: Device): number => {
-  const year = Number(d.start.match(/\d{4}/)?.[0] ?? 0);
-  const month = MONTHS[d.start.match(/[A-Za-z]{3}/)?.[0] ?? ''] ?? 0;
+const dateValue = (s: string): number => {
+  const year = Number(s.match(/\d{4}/)?.[0] ?? 0);
+  const month = MONTHS[s.match(/[A-Za-z]{3}/)?.[0] ?? ''] ?? 0;
   return year * 12 + month;
 };
 
-// Active devices first, then newest-started first.
+// When a device was last maintained: its end date, or the start date for a
+// one-off release. Used for both grouping and ordering (recency-first).
+const lastSeen = (d: Device): string => (d.end && d.end !== 'present' ? d.end : d.start);
+
+// Year a device is filed under on the Devices page (its end / last-maintained year).
+export const deviceYear = (d: Device): string => lastSeen(d).match(/\d{4}/)?.[0] ?? '—';
+
+// Higher = more recently maintained.
+export const recencyValue = (d: Device): number => dateValue(lastSeen(d));
+
+// Active devices first, then most-recently-maintained first.
 export const byActiveThenNewest = (a: Device, b: Device): number =>
-  (Number(isActive(b)) - Number(isActive(a))) || (startValue(b) - startValue(a));
+  (Number(isActive(b)) - Number(isActive(a))) || (recencyValue(b) - recencyValue(a));

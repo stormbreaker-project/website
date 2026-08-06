@@ -1,17 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import DeviceCard from '../components/DeviceCard.astro';
-import { DEVICES, UPCOMING, isActive, byActiveThenNewest, type Device } from '../data/devices';
+import { DEVICES, UPCOMING, isActive, byActiveThenNewest, deviceYear, type Device } from '../data/devices';
 import '../styles/devices.css';
 
 // Active devices are pinned to their own section up top; everything else is
-// grouped by start year, newest year first.
+// grouped by its last-maintained (end) year, newest year first.
 const active = DEVICES.filter(isActive).sort(byActiveThenNewest);
 
-const yearOf = (d: Device) => (d.start.match(/\d{4}/)?.[0]) ?? '—';
 const groups: Record<string, Device[]> = {};
 for (const d of DEVICES.filter((d) => !isActive(d)).sort(byActiveThenNewest)) {
-  (groups[yearOf(d)] ??= []).push(d);
+  (groups[deviceYear(d)] ??= []).push(d);
 }
 const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
 ---
