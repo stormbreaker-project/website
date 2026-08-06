@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News · Team StormBreaker</title>
-  <meta name="description" content="Latest news, releases and announcements from Team StormBreaker." />
+  <title>Contributing guide · Team StormBreaker</title>
+  <meta name="description" content="How to contribute to Team StormBreaker — kernels, fixes, testing and device requests." />
   <meta name="theme-color" content="#0a0a12" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,13 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
 
-  <!-- Styles (only what this page uses) -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/sections.css" />
-  <link rel="stylesheet" href="/css/news.css" />
+  <link rel="stylesheet" href="/css/article.css" />
   <link rel="stylesheet" href="/css/footer.css" />
 
   <!-- Apply theme before first paint to avoid a flash (must stay inline). -->
@@ -34,8 +33,6 @@
   <script src="/js/theme.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/reveal.js" defer></script>
-  <script src="/js/news-core.js" defer></script>
-  <script src="/js/news-list.js" defer></script>
 </head>
 <body>
   <div class="storm-bg"></div>
@@ -110,17 +107,62 @@
     </div>
   </header>
 
+  <!-- ====================================================================
+       EDIT ME: starter contributing guide. Refine wording/steps as needed.
+       ==================================================================== -->
   <main>
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">Newsroom</span>
-          <h2>News &amp; releases</h2>
-          <p>Kernel drops, project updates and announcements from Team StormBreaker.</p>
-        </div>
+        <article class="article">
+          <a class="back" href="/">← Back home</a>
+          <header class="article-head">
+            <span class="tag">Contribute</span>
+            <h1>Contributing guide</h1>
+            <div class="meta">Kernels, fixes, testing, docs — everyone’s welcome</div>
+          </header>
 
-        <p class="news-status" id="news-status">Loading news…</p>
-        <div class="news-grid" id="news-grid"></div>
+          <div class="prose">
+            <p>
+              StormBreaker is built by volunteers, and we’d love your help. Whether you write kernel
+              code, test builds on your device, improve docs, or just file good bug reports — it all
+              counts. Here’s how to get started.
+            </p>
+
+            <h2>Ways to contribute</h2>
+            <ul>
+              <li><strong>Code</strong> — fix bugs, port features, or maintain a device kernel.</li>
+              <li><strong>Testing</strong> — flash builds, report regressions, share logs.</li>
+              <li><strong>Docs</strong> — improve READMEs, guides, or this website.</li>
+              <li><strong>Triage</strong> — help reproduce and label issues.</li>
+            </ul>
+
+            <h2>Before you start</h2>
+            <ul>
+              <li>Read our <a href="/about/coc/">Code of Conduct</a> — it applies everywhere.</li>
+              <li>Skim the <a href="https://github.com/stormbreaker-project/maintainer-guidelines" target="_blank" rel="noopener">maintainer guidelines</a>.</li>
+              <li>Say hi on <a href="https://t.me/stormbreakerkernelupdatescl" target="_blank" rel="noopener">Telegram</a> or <a href="https://discord.gg/cZZeSq8Dj" target="_blank" rel="noopener">Discord</a> if you’re unsure where to begin.</li>
+            </ul>
+
+            <h2>Submitting changes</h2>
+            <ol>
+              <li><strong>Fork</strong> the relevant repo under <a href="https://github.com/stormbreaker-project" target="_blank" rel="noopener">github.com/stormbreaker-project</a>.</li>
+              <li>Create a branch: <code>git checkout -b fix/short-description</code>.</li>
+              <li>Keep commits focused and write clear messages (imperative mood, e.g. “Fix wakeup regression”).</li>
+              <li>Test your build on-device before opening a PR.</li>
+              <li>Open a <strong>pull request</strong> describing what changed and why, with logs if relevant.</li>
+            </ol>
+
+            <h2>Reporting bugs &amp; requesting devices</h2>
+            <p>
+              Open an issue on the appropriate repo with your device, build, steps to reproduce, and a
+              <code>dmesg</code>/logcat if you have one. Device requests are welcome — the more testers
+              a device has, the more likely it gets picked up.
+            </p>
+
+            <hr />
+            <p>Thanks for helping make StormBreaker better. ⚡</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>

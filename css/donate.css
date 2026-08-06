@@ -1,0 +1,11 @@
+/* Donate page — centered, heartfelt layout. */
+.donate { max-width: 640px; margin: 0 auto; text-align: center; }
+.donate .heart {
+  width: 64px; height: 64px; margin: 0 auto 26px; color: var(--brand);
+  filter: drop-shadow(0 0 22px var(--glow));
+}
+.donate p { color: var(--muted); font-size: clamp(1.02rem, 2.2vw, 1.12rem); line-height: 1.75; margin: 0 auto 18px; }
+.donate p strong { color: var(--text); }
+.donate .cta { margin-top: 32px; }
+.donate .cta .btn { font-size: 1rem; padding: 14px 28px; }
+.donate .small { font-size: .9rem; color: var(--faint); margin-top: 24px; }

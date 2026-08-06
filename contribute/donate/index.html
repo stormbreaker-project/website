@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News · Team StormBreaker</title>
-  <meta name="description" content="Latest news, releases and announcements from Team StormBreaker." />
+  <title>Donate · Team StormBreaker</title>
+  <meta name="description" content="Support Team StormBreaker — help cover servers, CI and test devices." />
   <meta name="theme-color" content="#0a0a12" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,13 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M18 2 6 18h7l-3 12 14-18h-8z' fill='%237c5cff'/%3E%3C/svg%3E" />
 
-  <!-- Styles (only what this page uses) -->
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/sections.css" />
-  <link rel="stylesheet" href="/css/news.css" />
+  <link rel="stylesheet" href="/css/donate.css" />
   <link rel="stylesheet" href="/css/footer.css" />
 
   <!-- Apply theme before first paint to avoid a flash (must stay inline). -->
@@ -34,8 +33,6 @@
   <script src="/js/theme.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/reveal.js" defer></script>
-  <script src="/js/news-core.js" defer></script>
-  <script src="/js/news-list.js" defer></script>
 </head>
 <body>
   <div class="storm-bg"></div>
@@ -113,14 +110,34 @@
   <main>
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">Newsroom</span>
-          <h2>News &amp; releases</h2>
-          <p>Kernel drops, project updates and announcements from Team StormBreaker.</p>
-        </div>
+        <div class="donate">
+          <svg class="heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.33-8.02C.9 10.3 1.4 6.9 3.9 5.35a5.2 5.2 0 0 1 6.1.9L12 8.3l2-2.05a5.2 5.2 0 0 1 6.1-.9c2.5 1.55 3 4.95 1.23 7.63C18.7 16.65 12 21 12 21z"/></svg>
 
-        <p class="news-status" id="news-status">Loading news…</p>
-        <div class="news-grid" id="news-grid"></div>
+          <div class="section-head" style="margin-bottom:26px">
+            <span class="kicker">Support us</span>
+            <h2>Donate</h2>
+          </div>
+
+          <p>
+            StormBreaker is <strong>free and always will be</strong>. Every kernel, build and
+            late-night bugfix is volunteer time from people who just love making Android devices
+            better.
+          </p>
+          <p>
+            If our work has helped your phone run faster, cooler or longer — and you’d like to say
+            thanks — a small tip genuinely means a lot. It helps cover <strong>servers, CI and test
+            devices</strong>, and honestly, it just makes our day. 💜
+          </p>
+          <p>There’s zero pressure, and no feature is ever paywalled. Thank you for being here.</p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="https://paypal.me/saalimquadri" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.4 21.5H4.6c-.4 0-.7-.3-.6-.7L6.7 3.2c.1-.5.5-.8 1-.8h6.1c2.9 0 5 1.6 4.6 4.6-.5 3.3-2.9 4.9-6 4.9H9.9c-.5 0-.9.3-1 .8l-.9 8c-.02.4-.3.8-.6.8z" opacity=".55"/><path d="M9.9 12.9h2.5c3.1 0 5.5-1.6 6-4.9.04-.3.06-.5.07-.8.6.4 1 1 1.1 1.9.4 3-1.7 4.9-4.6 4.9h-1.6c-.5 0-.9.3-1 .8l-.9 5.6c-.06.4-.4.7-.8.7H8.6c-.4 0-.6-.3-.6-.6l1-6.9c.1-.5.4-.7.9-.7z"/></svg>
+              Donate via PayPal
+            </a>
+          </div>
+          <p class="small">Securely handled by PayPal · paypal.me/saalimquadri</p>
+        </div>
       </div>
     </section>
   </main>
