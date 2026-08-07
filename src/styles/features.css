@@ -14,3 +14,17 @@
 @media (max-width: 860px) {
   .feature-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Under-the-hood feature lists ---------- */
+.lists-head { text-align: center; max-width: 620px; margin: 64px auto 30px; }
+.lists-head h3 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); letter-spacing: -.4px; margin-bottom: 10px; }
+.lists-head p { color: var(--muted); }
+
+.feature-lists { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.flist { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.flist h3 { font-size: 1.05rem; margin-bottom: 14px; color: var(--brand); }
+.flist ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.flist li { position: relative; padding-left: 24px; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+.flist li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+
+@media (max-width: 860px) { .feature-lists { grid-template-columns: 1fr; } }
