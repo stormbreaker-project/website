@@ -10,29 +10,37 @@ import '../../styles/maintainers.css';
         <div class="section-head">
           <span class="kicker">The team</span>
           <h2>Maintainers</h2>
-          <p>The people who build and maintain StormBreaker kernels.</p>
+          <p>The people who maintain StormBreaker, and the devices in their charter.</p>
         </div>
 
         <div class="maintainer-grid">
-          {MAINTAINERS.map((m) => (
-            <a
-              class="maintainer-card reveal"
-              href={m.github ? `https://github.com/${m.github}` : '#'}
-              target={m.github ? '_blank' : undefined}
-              rel={m.github ? 'noopener' : undefined}
-            >
-              {m.github ? (
-                <img class="mavatar" src={`https://github.com/${m.github}.png?size=160`} alt="" width="64" height="64" loading="lazy" />
-              ) : (
-                <span class="mavatar mavatar-fallback">{m.name.charAt(0)}</span>
-              )}
-              <div class="minfo">
-                <h3>{m.name}</h3>
-                <div class="mrole">{m.role}</div>
-                {m.github && <div class="mhandle">@{m.github}</div>}
+          {MAINTAINERS.map((m) => {
+            const profile = m.github ? `https://github.com/${m.github}` : '#';
+            const ext = m.github ? { target: '_blank', rel: 'noopener' } : {};
+            return (
+              <div class="maintainer-card reveal">
+                <a class="mavatar-link" href={profile} aria-label={m.name} {...ext}>
+                  {m.github ? (
+                    <img class="mavatar" src={`https://github.com/${m.github}.png?size=160`} alt="" width="64" height="64" loading="lazy" />
+                  ) : (
+                    <span class="mavatar mavatar-fallback">{m.name.charAt(0)}</span>
+                  )}
+                </a>
+                <div class="minfo">
+                  <h3><a class="mname" href={profile} {...ext}>{m.name}</a></h3>
+                  <div class="mrole">{m.role}</div>
+                  {m.github && m.github !== m.name && <div class="mhandle">@{m.github}</div>}
+                  {m.devices && m.devices.length > 0 && (
+                    <div class="mdevices">
+                      {m.devices.map((d) => (
+                        <a class="mdevice" href={`https://github.com/stormbreaker-project/${d.repo}`} target="_blank" rel="noopener">{d.codename}</a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
 
         <p class="maintainers-cta">
