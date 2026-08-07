@@ -7,7 +7,7 @@ const { device } = Astro.props;
 const { name, codename, start, end, upcoming, note } = device;
 
 const active = end === 'present';
-const period = upcoming ? '' : active ? `${start} to present` : end ? `${start} to ${end}` : start;
+const period = upcoming ? '' : active ? (start ? `${start} to present` : '') : end ? `${start} to ${end}` : start;
 
 // Link to the org repo search for this codename (avoids guessing exact slugs).
 const term = codename.split(/[\s/]+/)[0];
@@ -24,7 +24,7 @@ const href = `https://github.com/stormbreaker-project?q=${encodeURIComponent(ter
       <span class="dc-deprecated">Deprecated</span>
     )}
   </div>
-  <div class="dc-name">{name}</div>
+  {name && <div class="dc-name">{name}</div>}
   {note && <div class="dc-note">{note}</div>}
   {period && <div class="dc-period">{period}</div>}
 </a>

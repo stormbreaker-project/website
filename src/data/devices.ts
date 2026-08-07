@@ -22,10 +22,10 @@ export const DEVICES: Device[] = [
   { name: 'Poco X2', codename: 'phoenix', start: 'May 2020', end: 'Nov 2020' },
   { name: 'OnePlus Nord', codename: 'avicii', start: 'Aug 2020', end: 'Mar 2021', featured: true },
   { name: 'Redmi S2 / Y2', codename: 'ysl', start: '2022', end: '', note: 'Part of the msm8953 common kernel' },
-  { name: 'Poco X3', codename: 'surya / karna', start: 'Dec 2020', end: 'Dec 2021', featured: true },
+  { name: 'Poco X3', codename: 'surya / karna', start: 'Dec 2020', end: 'present', featured: true },
   { name: 'Oppo Realme 1', codename: 'CPH1859', start: '2021', end: '' },
   { name: 'Redmi Note 10 Pro', codename: 'sweet', start: 'May 2021', end: '' },
-  { name: 'Realme 5 / 5i / 5s', codename: 'r5x', start: 'Jun 2021', end: '' },
+  { name: 'Realme 5 / 5i / 5s', codename: 'r5x', start: 'Jun 2021', end: 'present' },
   { name: 'Redmi Note 8 / 8T', codename: 'ginkgo / willow', start: '2021', end: '2023', featured: true },
   { name: 'Poco M3', codename: 'citrus', start: 'May 2021', end: 'Sep 2021' },
   { name: 'Redmi 9 / 9T', codename: 'lime', start: 'Nov 2021', end: '' },
@@ -42,6 +42,10 @@ export const DEVICES: Device[] = [
   { name: 'Mi A1', codename: 'tissot', start: '2022', end: '', note: 'Part of the msm8953 common kernel' },
   { name: 'Redmi 3S / 3S Prime / 3X', codename: 'land', start: '2022', end: '', note: 'Part of the MI8937 common kernel' },
   { name: 'Redmi Note 5A Prime / Y1', codename: 'ugg', start: '2022', end: '', note: 'Part of the MI8937 common kernel' },
+  { name: 'Mi 10T Lite / Redmi Note 9 Pro 5G', codename: 'gauguin', start: 'Aug 2026', end: 'present' },
+  { name: 'Asus Zenfone Max Pro M2', codename: 'x01bd', start: 'Aug 2026', end: 'present' },
+  { name: 'Redmi Note 9 Pro / 9S / Poco M2 Pro', codename: 'miatoll', start: 'Aug 2026', end: 'present' },
+  { name: 'Realme 6 / 6i / 6s / Narzo', codename: 'nemo', start: 'Aug 2026', end: 'present' },
 ];
 
 // Work-in-progress devices (no release date yet).
