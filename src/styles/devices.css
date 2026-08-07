@@ -31,6 +31,11 @@
   color: var(--brand); border: 1px solid rgba(var(--brand-rgb),0.35); background: rgba(var(--brand-rgb),0.1);
   padding: 2px 8px; border-radius: 999px; white-space: nowrap;
 }
+.device-card .dc-deprecated {
+  font-size: .66rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--faint); border: 1px solid var(--border); background: rgba(150,150,170,0.06);
+  padding: 2px 8px; border-radius: 999px;
+}
 .device-card .dc-name { color: var(--text); font-size: .95rem; font-weight: 500; }
 .device-card .dc-note { color: var(--brand); font-size: .74rem; margin-top: 6px; }
 .device-card .dc-period { color: var(--faint); font-size: .82rem; margin-top: 12px; }

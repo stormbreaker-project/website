@@ -16,7 +16,13 @@ const href = `https://github.com/stormbreaker-project?q=${encodeURIComponent(ter
 <a class="device-card reveal" href={href} target="_blank" rel="noopener">
   <div class="dc-top">
     <span class="codename">{codename}</span>
-    {upcoming ? <span class="dc-wip">In progress</span> : active && <span class="dc-active">Active</span>}
+    {upcoming ? (
+      <span class="dc-wip">In progress</span>
+    ) : active ? (
+      <span class="dc-active">Active</span>
+    ) : (
+      <span class="dc-deprecated">Deprecated</span>
+    )}
   </div>
   <div class="dc-name">{name}</div>
   {note && <div class="dc-note">{note}</div>}
