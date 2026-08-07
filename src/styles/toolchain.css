@@ -11,6 +11,12 @@
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
 .banner .txt { max-width: 560px; }
+.banner-title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.banner-badge {
+  font-size: .66rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  color: #e0a458; border: 1px solid rgba(224,164,88,0.35); background: rgba(224,164,88,0.1);
+  padding: 3px 9px; border-radius: 999px;
+}
 .banner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.6px; }
 .banner p { color: var(--muted); }
 .banner code { font-family: 'Space Grotesk'; color: var(--accent); background: rgba(53,224,212,0.08); padding: 1px 7px; border-radius: 5px; }
