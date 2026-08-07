@@ -1,0 +1,20 @@
+/* "Powers these ROMs" strip — wordmark chips (swap in logos via public/roms/). */
+.rom-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+.rom {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  width: 150px; padding: 26px 18px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  transition: transform .2s, border-color .25s, box-shadow .3s;
+}
+.rom:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 36px rgba(0,0,0,0.4); }
+
+.rom-logo { width: 48px; height: 48px; border-radius: 11px; object-fit: cover; display: block; }
+
+.rom-name {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; text-align: center;
+  color: var(--muted); transition: color .2s;
+}
+.rom:hover .rom-name { color: var(--text); }
+
+@media (max-width: 560px) { .rom { width: calc(50% - 8px); } }
