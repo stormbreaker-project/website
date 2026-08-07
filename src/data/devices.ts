@@ -32,7 +32,7 @@ export const DEVICES: Device[] = [
   { name: 'OnePlus Nord N10 5G', codename: 'billie', start: '2021', end: 'present', featured: true },
   { name: 'Realme 3 Pro', codename: 'RMX1851', start: '2020', end: '' },
   { name: 'Redmi 4 / 4X', codename: 'santoni', start: '2022', end: '', note: 'Part of the MI8937 common kernel' },
-  { name: 'Redmi 9 / Poco M2', codename: 'lancelot', start: '2021', end: '' },
+  { name: 'Redmi 9 / Poco M2', codename: 'lancelot', start: '2021', end: '2023' },
   { name: 'Realme U1', codename: 'RMX1831', start: '2021', end: '' },
   { name: 'Redmi K30 5G', codename: 'picasso', start: '2021', end: '' },
   { name: 'Realme 7 / Narzo 20 Pro / Narzo 30 4G', codename: 'salaa', start: '2024', end: '' },
