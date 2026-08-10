@@ -6,7 +6,7 @@ import '../../styles/features.css';
 const features = [
   { title: 'Deep upstream work', body: 'We rebase the OEM kernel source onto the latest Linux-stable and land LTS, ACK, and CLO merges by hand, then pull features back from newer upstreams. This is the part most kernels skip.', lead: true },
   { title: 'Tuned for speed', body: 'Schedulers, governors and I/O tuned so everyday scrolling and gaming stay smooth, without trading away stability.' },
-  { title: 'Backports', body: 'Modern features pulled back to the kernel your device actually runs, like RCU for faster file ops and BBR for networking.' },
+  { title: 'Backports', body: 'Modern features pulled back to the kernel your device actually runs, like BBR for networking and scheduler improvements from newer trees.' },
   { title: 'Battery friendly', body: 'Idle and thermal tuning that keeps drain in check, for better standby and cooler temperatures under load.' },
   { title: 'Fully open source', body: 'Every line lives on GitHub under the GPL. Clone it, audit it, build it, or send a pull request.' },
 ];
@@ -14,12 +14,11 @@ const features = [
 // Detailed, curated feature buckets (dated/risky items trimmed, CAF -> CLO).
 const buckets = [
   { title: 'performance', items: [
-    'RCU backports for faster file operations',
-    'Schedtune boost for snappier interaction',
-    'BBR congestion control, backported 4.14 to 4.4 LTS',
-    'TCP stack backports for throughput and latency',
-    'vDSO32 for low-overhead userspace time calls',
-    'srandom for a faster /dev/urandom',
+    'BBR congestion control, backported from 4.14 to 4.4 LTS',
+    'Scheduler tuning: schedutil and schedtune boost',
+    'vDSO32 mapped for low-overhead userspace time calls',
+    'srandom, an add-on module for a faster /dev/urandom',
+    'Selected RCU and TCP updates from newer kernels',
     'Plenty more under-the-hood tuning',
   ]},
   { title: 'stability', items: [

@@ -34,13 +34,18 @@ export type NavItem =
 
 export const NAV: NavItem[] = [
   { label: 'News', href: '/news/' },
-  { label: 'Devices', href: '/devices/' },
+  {
+    label: 'Devices',
+    items: [
+      { label: 'All devices', href: '/devices/', icon: 'devices' },
+      { label: 'Maintenance Charter', href: '/devices/charter/', icon: 'charter' },
+    ],
+  },
   {
     label: 'About',
     items: [
       { label: 'About Team StormBreaker', href: '/about/', icon: 'about' },
       { label: 'Maintainers', href: '/about/maintainers/', icon: 'maintainers' },
-      { label: 'Maintenance Charter', href: '/about/charter/', icon: 'guide' },
     ],
   },
   {

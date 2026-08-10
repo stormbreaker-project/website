@@ -1,8 +1,8 @@
 ---
-import Base from '../layouts/Base.astro';
-import DeviceCard from '../components/DeviceCard.astro';
-import { DEVICES, UPCOMING, isActive, byActiveThenNewest, deviceYear, type Device } from '../data/devices';
-import '../styles/devices.css';
+import Base from '../../layouts/Base.astro';
+import DeviceCard from '../../components/DeviceCard.astro';
+import { DEVICES, UPCOMING, isActive, byActiveThenNewest, deviceYear, type Device } from '../../data/devices';
+import '../../styles/devices.css';
 
 // Active devices are pinned to their own section up top; everything else is
 // grouped by its last-maintained (end) year, newest year first.
@@ -22,6 +22,7 @@ const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
           <span class="kicker">7 years of kernels</span>
           <h2>Devices we've built for</h2>
           <p>Every phone StormBreaker has shipped a kernel for, from our first releases in October 2019 to today. {DEVICES.length} devices and counting.</p>
+          <a class="devices-charter-link" href="/devices/charter/">See how these are maintained → the Maintenance Charter</a>
         </div>
 
         {UPCOMING.length > 0 && (

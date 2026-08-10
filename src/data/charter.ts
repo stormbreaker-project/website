@@ -30,7 +30,7 @@ export const KERNEL_LINES: KernelLine[] = [
     rev: 'r1',
     status: 'active',
     devices: ['r5x', 'nemo', 'x01bd'],
-    note: 'Mixed SoCs on the same LTS: generic backports are shared, vendor patches stay per chipset.',
+    note: 'Mixed SoCs on the same LTS: generic patches are shared, vendor patches stay per chipset.',
   },
   {
     version: '4.19',
