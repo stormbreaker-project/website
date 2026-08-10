@@ -1,11 +1,31 @@
-/* Community — social link pills. */
-.community { text-align: center; }
-.social-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
-.social {
-  display: flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 10px;
-  border: 1px solid var(--border); background: var(--surface);
-  font-family: var(--mono); font-weight: 500; font-size: .9rem;
-  transition: transform .18s, border-color .2s;
+/* Community — a bold brand-filled closing panel. The one committed colour
+   block that ends the page. Dark text/button ride on the brand fill. */
+.cta-panel {
+  background: var(--brand); color: var(--brand-text);
+  border-radius: 22px; padding: 64px 48px; text-align: center;
 }
-.social:hover { transform: translateY(-3px); border-color: var(--brand); }
-.social svg { width: 20px; height: 20px; fill: currentColor; }
+.cta-kicker { font-family: var(--mono); font-size: .82rem; color: color-mix(in srgb, var(--brand-text) 58%, transparent); }
+.cta-panel h2 {
+  color: var(--brand-text); font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -1.2px; margin: 14px 0 14px;
+}
+.cta-panel p {
+  color: color-mix(in srgb, var(--brand-text) 78%, transparent);
+  max-width: 560px; margin: 0 auto 32px; font-size: 1.05rem;
+}
+
+.cta-actions { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.cta-btn {
+  background: var(--ink); color: #fff; border: 1px solid var(--ink); font-weight: 600;
+}
+.cta-btn svg { fill: currentColor; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+
+.cta-links {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+  font-family: var(--mono); font-size: .88rem;
+}
+.cta-links a { color: color-mix(in srgb, var(--brand-text) 72%, transparent); transition: color .2s; }
+.cta-links a:hover { color: var(--brand-text); }
+
+@media (max-width: 620px) { .cta-panel { padding: 48px 24px; } }

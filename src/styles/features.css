@@ -1,4 +1,13 @@
-/* "Why StormBreaker" — mono-indexed cards + diff-style under-the-hood lists. */
+/* "Why StormBreaker" — left-anchored head, a lead card + 4 supporting cards,
+   and an "under the hood" terminal panel that matches the hero/bento shell. */
+
+/* Left-anchored head (breaks the centered-template rhythm of other sections). */
+.feat-head { max-width: 640px; margin: 0 0 40px; }
+.feat-head .kicker { font-family: var(--mono); color: var(--brand); font-weight: 500; font-size: .82rem; }
+.feat-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -.8px; margin: 12px 0 14px; }
+.feat-head p { color: var(--muted); font-size: 1.05rem; max-width: 620px; }
+
+/* ---------- why: 1 lead card + 4 ---------- */
 .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .feature {
   display: flex; gap: 20px; background: var(--surface); border: 1px solid var(--border);
@@ -12,29 +21,52 @@
 .feature h3 { font-size: 1.15rem; margin-bottom: 6px; }
 .feature p { color: var(--muted); font-size: .95rem; }
 
-@media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr; } }
-
-/* ---------- Under-the-hood feature lists ---------- */
-.lists-head { text-align: center; max-width: 620px; margin: 64px auto 30px; }
-.lists-head h3 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); letter-spacing: -.4px; margin-bottom: 10px; }
-.lists-head p { color: var(--muted); }
-
-.feature-lists { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.flist { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 26px; }
-.flist h3 {
-  font-family: var(--mono); font-size: .9rem; font-weight: 500; margin-bottom: 16px;
-  color: var(--text); letter-spacing: .2px;
+/* Lead card spans the full row and carries a little more weight. */
+.feature-lead {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, rgba(var(--brand-rgb), .06), transparent), var(--surface);
+  border-color: rgba(var(--brand-rgb), .28);
+  padding: 30px 32px;
 }
-.flist-slash { color: var(--brand); opacity: .6; }
-.flist ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.flist li {
-  position: relative; padding-left: 22px; color: var(--muted);
-  font-size: .92rem; line-height: 1.5;
-}
-/* diff-add "+" marker in mono brand */
-.flist li::before {
-  content: "+"; position: absolute; left: 0; top: 0;
-  font-family: var(--mono); color: var(--brand); font-weight: 500;
+.feature-lead h3 { font-size: 1.45rem; letter-spacing: -.4px; }
+.feature-lead p { font-size: 1.02rem; max-width: 60ch; }
+.feature-lead .f-idx { font-size: 1.1rem; opacity: 1; }
+
+@media (max-width: 860px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-lead { grid-column: auto; }
 }
 
-@media (max-width: 860px) { .feature-lists { grid-template-columns: 1fr; } }
+/* ---------- under the hood: terminal panel ---------- */
+.hood-head { max-width: 640px; margin: 62px 0 18px; }
+.hood-head .kicker { font-family: var(--mono); color: var(--brand); font-weight: 500; font-size: .82rem; }
+.hood-head p { color: var(--muted); margin-top: 8px; }
+
+.hood {
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  background: var(--ink); font-family: var(--mono);
+}
+:root[data-theme="light"] .hood { border-color: var(--ink); }
+.hood-bar {
+  display: flex; align-items: center; gap: 7px; padding: 11px 16px;
+  background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.hood-bar span { width: 11px; height: 11px; border-radius: 50%; background: #ffffff26; }
+.hood-bar span:nth-child(1) { background: #ff5f57; }
+.hood-bar span:nth-child(2) { background: #febc2e; }
+.hood-bar span:nth-child(3) { background: #28c840; }
+.hood-bar em { margin-left: auto; font-style: normal; font-size: .74rem; color: #7f8296; }
+
+.hood-body { display: grid; grid-template-columns: repeat(3, 1fr); }
+.hood-col { padding: 22px 24px; }
+.hood-col + .hood-col { border-left: 1px solid rgba(255,255,255,.07); }
+.hood-h { color: #7f8296; font-size: .88rem; margin-bottom: 14px; }
+.hood-line {
+  display: flex; gap: 10px; color: #cfd2e0; font-size: .86rem; line-height: 1.55; padding: 2px 0;
+}
+.hood-plus { color: var(--brand); flex: 0 0 auto; }
+
+@media (max-width: 760px) {
+  .hood-body { grid-template-columns: 1fr; }
+  .hood-col + .hood-col { border-left: 0; border-top: 1px solid rgba(255,255,255,.07); }
+}

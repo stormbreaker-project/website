@@ -1,11 +1,12 @@
 ---
 import '../../styles/features.css';
 
-// High-level "why" cards.
+// High-level "why" points. The first is the lead (spans full width); it's the
+// thing that actually sets StormBreaker apart.
 const features = [
-  { title: 'Tuned for speed', body: 'Carefully tuned schedulers, governors and I/O that keep everyday scrolling and gaming smooth without giving up stability.' },
-  { title: 'Deep upstream work', body: 'Upstreaming the OEM kernel source onto the latest Linux-stable, with regular LTS, ACK and CLO merges and features ported from newer upstreams.' },
-  { title: 'Backports', body: 'Useful features pulled back from newer kernels to the version your device runs, like RCU for faster file operations and BBR for networking.' },
+  { title: 'Deep upstream work', body: 'We rebase the OEM kernel source onto the latest Linux-stable and land LTS, ACK, and CLO merges by hand, then pull features back from newer upstreams. This is the part most kernels skip.', lead: true },
+  { title: 'Tuned for speed', body: 'Schedulers, governors and I/O tuned so everyday scrolling and gaming stay smooth, without trading away stability.' },
+  { title: 'Backports', body: 'Modern features pulled back to the kernel your device actually runs, like RCU for faster file ops and BBR for networking.' },
   { title: 'Battery friendly', body: 'Idle and thermal tuning that keeps drain in check, for better standby and cooler temperatures under load.' },
   { title: 'Fully open source', body: 'Every line lives on GitHub under the GPL. Clone it, audit it, build it, or send a pull request.' },
 ];
@@ -40,33 +41,40 @@ const buckets = [
 ---
 <section id="features">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="kicker">why stormbreaker</span>
+    <div class="feat-head reveal">
+      <span class="kicker">// why stormbreaker</span>
       <h2>Built to perform, made to last</h2>
       <p>Real engineering, tracked upstream and built for balance. Official and unofficial ROMs have shipped StormBreaker as their stock kernel.</p>
     </div>
 
     <div class="feature-grid">
       {features.map((f, i) => (
-        <div class="feature reveal">
+        <div class={`feature reveal${f.lead ? ' feature-lead' : ''}`}>
           <span class="f-idx">{String(i + 1).padStart(2, '0')}</span>
           <div class="f-body"><h3>{f.title}</h3><p>{f.body}</p></div>
         </div>
       ))}
     </div>
 
-    <div class="lists-head reveal">
-      <h3>Under the hood</h3>
+    <div class="hood-head reveal">
+      <span class="kicker">// under the hood</span>
       <p>Stability first. We don't ship tweaks that trade it away for a benchmark number.</p>
     </div>
 
-    <div class="feature-lists">
-      {buckets.map((b) => (
-        <div class="flist reveal">
-          <h3><span class="flist-slash">//</span> {b.title}</h3>
-          <ul>{b.items.map((i) => <li>{i}</li>)}</ul>
-        </div>
-      ))}
+    <div class="hood reveal">
+      <div class="hood-bar">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="hood-body">
+        {buckets.map((b) => (
+          <div class="hood-col">
+            <div class="hood-h"># {b.title}</div>
+            {b.items.map((i) => (
+              <div class="hood-line"><span class="hood-plus">+</span>{i}</div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
