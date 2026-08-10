@@ -7,6 +7,7 @@
   --surface: #12121f;
   --surface-2: #16162a;
   --border: #22223a;
+  --border-2: #30304e;         /* slightly stronger hairline (dividers) */
   --text: #ececf5;
   --muted: #9a9ab5;
   --faint: #6b6b85;
@@ -45,6 +46,7 @@
   --surface: #ffffff;
   --surface-2: #f2f3fa;
   --border: #e3e4ef;
+  --border-2: #d3d5e5;
   --text: #14142a;
   --muted: #55566f;
   --faint: #8687a0;
