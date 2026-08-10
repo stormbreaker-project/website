@@ -3,16 +3,16 @@ import '../../styles/features.css';
 
 // High-level "why" cards.
 const features = [
-  { title: 'Tuned for speed', body: 'Carefully tuned schedulers, governors and I/O that keep everyday scrolling and gaming smooth without giving up stability.', icon: '<path d="M13 2 4 14h6l-1 8 9-12h-6z"/>' },
-  { title: 'Deep upstream work', body: 'Upstreaming the OEM kernel source onto the latest Linux-stable, with regular LTS, ACK and CLO merges and features ported from newer upstreams.', icon: '<path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/>' },
-  { title: 'Backports', body: 'Useful features pulled back from newer kernels to the version your device runs, like RCU for faster file operations and BBR for networking.', icon: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>' },
-  { title: 'Battery friendly', body: 'Idle and thermal tuning that keeps drain in check, for better standby and cooler temperatures under load.', icon: '<rect x="2" y="8" width="16" height="9" rx="2"/><path d="M22 11v3M6 11v3M9 11v3"/>' },
-  { title: 'Fully open source', body: 'Every line lives on GitHub under the GPL. Clone it, audit it, build it, or send a pull request.', icon: '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>' },
+  { title: 'Tuned for speed', body: 'Carefully tuned schedulers, governors and I/O that keep everyday scrolling and gaming smooth without giving up stability.' },
+  { title: 'Deep upstream work', body: 'Upstreaming the OEM kernel source onto the latest Linux-stable, with regular LTS, ACK and CLO merges and features ported from newer upstreams.' },
+  { title: 'Backports', body: 'Useful features pulled back from newer kernels to the version your device runs, like RCU for faster file operations and BBR for networking.' },
+  { title: 'Battery friendly', body: 'Idle and thermal tuning that keeps drain in check, for better standby and cooler temperatures under load.' },
+  { title: 'Fully open source', body: 'Every line lives on GitHub under the GPL. Clone it, audit it, build it, or send a pull request.' },
 ];
 
 // Detailed, curated feature buckets (dated/risky items trimmed, CAF -> CLO).
 const buckets = [
-  { title: 'Performance', items: [
+  { title: 'performance', items: [
     'RCU backports for faster file operations',
     'Schedtune boost for snappier interaction',
     'BBR congestion control, backported 4.14 to 4.4 LTS',
@@ -21,14 +21,14 @@ const buckets = [
     'srandom for a faster /dev/urandom',
     'Plenty more under-the-hood tuning',
   ]},
-  { title: 'Stability', items: [
+  { title: 'stability', items: [
     'Modern Clang compiler optimizations',
     'Bug fixes and security hardening',
     'LZ4-compressed zRAM',
     'Regular Linux-stable and CLO merges',
     'TTL fix and more',
   ]},
-  { title: 'Battery', items: [
+  { title: 'battery', items: [
     'Trimmed debug logging',
     'GPU power optimizations',
     'Idle wakelock tuning',
@@ -41,16 +41,16 @@ const buckets = [
 <section id="features">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Why StormBreaker</span>
+      <span class="kicker">why stormbreaker</span>
       <h2>Built to perform, made to last</h2>
-      <p>Real engineering, tracked upstream and built for balance. Many official and unofficial ROMs have shipped StormBreaker as their stock kernel.</p>
+      <p>Real engineering, tracked upstream and built for balance. Official and unofficial ROMs have shipped StormBreaker as their stock kernel.</p>
     </div>
 
     <div class="feature-grid">
-      {features.map((f) => (
+      {features.map((f, i) => (
         <div class="feature reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" set:html={f.icon}></svg></div>
-          <div><h3>{f.title}</h3><p>{f.body}</p></div>
+          <span class="f-idx">{String(i + 1).padStart(2, '0')}</span>
+          <div class="f-body"><h3>{f.title}</h3><p>{f.body}</p></div>
         </div>
       ))}
     </div>
@@ -63,7 +63,7 @@ const buckets = [
     <div class="feature-lists">
       {buckets.map((b) => (
         <div class="flist reveal">
-          <h3>{b.title}</h3>
+          <h3><span class="flist-slash">//</span> {b.title}</h3>
           <ul>{b.items.map((i) => <li>{i}</li>)}</ul>
         </div>
       ))}

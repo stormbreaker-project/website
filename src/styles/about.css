@@ -17,8 +17,8 @@
   background: var(--brand); box-shadow: 0 0 0 4px var(--bg), 0 0 16px var(--glow);
 }
 .milestone .year {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-  color: var(--brand); font-size: .92rem; letter-spacing: .5px;
+  font-family: var(--mono); font-weight: 500;
+  color: var(--brand); font-size: .86rem; letter-spacing: .2px;
 }
 .milestone h3 { font-size: 1.2rem; margin: 4px 0 8px; }
 .milestone p { color: var(--muted); }

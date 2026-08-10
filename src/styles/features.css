@@ -1,30 +1,40 @@
-/* "Why StormBreaker" — two-column feature cards with icon tiles. */
-.feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.feature { display: flex; gap: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color .25s; }
-.feature:hover { border-color: var(--brand); }
-.feature .ico {
-  flex: 0 0 46px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
-  background: linear-gradient(135deg, rgba(var(--brand-rgb),0.2), rgba(77,141,255,0.12));
-  border: 1px solid rgba(var(--brand-rgb),0.3);
+/* "Why StormBreaker" — mono-indexed cards + diff-style under-the-hood lists. */
+.feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.feature {
+  display: flex; gap: 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px 28px; transition: border-color .25s, transform .2s;
 }
-.feature .ico svg { width: 22px; height: 22px; stroke: var(--brand); fill: none; stroke-width: 1.8; }
+.feature:hover { border-color: var(--brand); transform: translateY(-3px); }
+.feature .f-idx {
+  font-family: var(--mono); font-size: .95rem; font-weight: 500; color: var(--brand);
+  flex: 0 0 auto; padding-top: 3px; opacity: .85;
+}
 .feature h3 { font-size: 1.15rem; margin-bottom: 6px; }
 .feature p { color: var(--muted); font-size: .95rem; }
 
-@media (max-width: 860px) {
-  .feature-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 860px) { .feature-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Under-the-hood feature lists ---------- */
 .lists-head { text-align: center; max-width: 620px; margin: 64px auto 30px; }
 .lists-head h3 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); letter-spacing: -.4px; margin-bottom: 10px; }
 .lists-head p { color: var(--muted); }
 
-.feature-lists { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.flist { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
-.flist h3 { font-size: 1.05rem; margin-bottom: 14px; color: var(--brand); }
-.flist ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.flist li { position: relative; padding-left: 24px; color: var(--muted); font-size: .92rem; line-height: 1.5; }
-.flist li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+.feature-lists { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.flist { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 26px; }
+.flist h3 {
+  font-family: var(--mono); font-size: .9rem; font-weight: 500; margin-bottom: 16px;
+  color: var(--text); letter-spacing: .2px;
+}
+.flist-slash { color: var(--brand); opacity: .6; }
+.flist ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.flist li {
+  position: relative; padding-left: 22px; color: var(--muted);
+  font-size: .92rem; line-height: 1.5;
+}
+/* diff-add "+" marker in mono brand */
+.flist li::before {
+  content: "+"; position: absolute; left: 0; top: 0;
+  font-family: var(--mono); color: var(--brand); font-weight: 500;
+}
 
 @media (max-width: 860px) { .feature-lists { grid-template-columns: 1fr; } }

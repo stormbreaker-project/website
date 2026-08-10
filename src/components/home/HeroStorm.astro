@@ -1,0 +1,61 @@
+---
+import Icon from '../Icon.astro';
+import { SOCIAL } from '../../config/site';
+import { DEVICES } from '../../data/devices';
+import '../../styles/hero.css';
+
+const stats: [string, string][] = [
+  ['devices', `${DEVICES.length}`],
+  ['downloads', '1M+'],
+  ['years', '7'],
+  ['repos', '57'],
+];
+
+// Ghosted boot log that bleeds behind the hero.
+const boot = [
+  '[    0.000000] Booting Linux on physical CPU 0x0000000000',
+  '[    0.000000] Linux version 4.19.325-StormBreaker (clang 18)',
+  '[    0.000000] Machine model: your phone, three years newer',
+  '[    0.451021] tcp: BBR congestion control backported from 4.14',
+  '[    1.882204] rcu: hierarchical RCU backport online',
+  '[    2.104882] random: srandom fast entropy source registered',
+  '[    2.318740] vdso: vDSO32 mapped, userspace time goes brrr',
+  '[    2.451021] StormBreaker: forged in the storm.',
+];
+---
+<section class="ph">
+  <pre class="ph-boot" aria-hidden="true">{boot.join('\n')}</pre>
+
+  <div class="wrap ph-inner">
+    <span class="ph-eyebrow">// custom android kernels · since oct 2019</span>
+
+    <h1 class="ph-h1">Kernels forged in<br /><span class="ph-mark">the storm.</span></h1>
+
+    <p class="ph-lead">
+      OEMs freeze their kernels at launch and never look back. We drag them forward with LTS bumps,
+      CLO merges, and real backports, so your phone runs like the code was written this year instead
+      of three years ago.
+    </p>
+
+    <div class="ph-cta">
+      <a class="ph-btn ph-btn-solid" href="#devices">Explore devices <Icon name="arrowRight" /></a>
+      <a class="ph-btn ph-btn-line" href={SOCIAL.github} target="_blank" rel="noopener">git clone the source</a>
+    </div>
+
+    <div class="ph-term">
+      <div class="ph-term-bar">
+        <span></span><span></span><span></span>
+        <em>stormbreaker — stats</em>
+      </div>
+      <div class="ph-term-body">
+        <div class="ph-term-line"><span class="ph-prompt">$</span> stormbreaker --stats</div>
+        {stats.map(([k, v]) => (
+          <div class="ph-term-line ph-stat">
+            <span class="ph-k">{k}</span><span class="ph-dots"></span><span class="ph-v">{v}</span>
+          </div>
+        ))}
+        <div class="ph-term-line"><span class="ph-prompt">$</span> <span class="ph-caret"></span></div>
+      </div>
+    </div>
+  </div>
+</section>

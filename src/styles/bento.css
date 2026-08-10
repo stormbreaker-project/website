@@ -1,0 +1,75 @@
+/* Bento — asymmetric grid of flat, committed color blocks:
+   a brand statement, a terminal feature log, a big stat, a ROM strip. */
+
+/* Solid page ground so the section reads flat, not floating on glow. */
+.stark { position: relative; z-index: 0; background: var(--bg); }
+
+.pb { padding: 20px 0 96px; }
+.pb-grid {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "hero hero log  log"
+    "hero hero log  log"
+    "stat roms roms roms";
+}
+.pb-cell {
+  border: 1px solid var(--border); border-radius: 14px; padding: 26px 28px;
+  background: var(--surface); display: flex; flex-direction: column;
+}
+.pb-tag {
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .4px;
+  color: var(--faint); margin-bottom: 16px;
+}
+
+/* Big flat brand statement block. */
+.pb-hero-cell {
+  grid-area: hero; background: var(--brand); border-color: var(--brand);
+  justify-content: flex-end;
+}
+.pb-hero-cell .pb-tag { color: rgba(10,16,32,.55); }
+.pb-big {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--brand-text);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.05; letter-spacing: -1px; margin: 0 0 14px;
+}
+.pb-sub { color: rgba(10,16,32,.72); font-size: 1rem; line-height: 1.5; max-width: 34ch; }
+
+/* Terminal feature-log block (real capabilities, rendered as dmesg lines). */
+.pb-ink { background: var(--ink); border-color: var(--ink); }
+.pb-log-cell { grid-area: log; font-family: var(--mono); justify-content: center; gap: 9px; }
+.pb-log-head { color: #7f8296; font-size: .85rem; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pb-log-head .pb-prompt { color: var(--brand); margin-right: 8px; }
+.pb-log-note { color: #565a6e; }
+.pb-log-row { display: flex; gap: 12px; color: #cfd2e0; font-size: .88rem; line-height: 1.5; }
+.pb-hash { flex: 0 0 auto; color: var(--brand); font-weight: 500; }
+.pb-msg { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Single big stat. */
+.pb-stat-cell { grid-area: stat; justify-content: center; }
+.pb-stat-num {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--brand);
+  font-size: clamp(3rem, 7vw, 4.6rem); line-height: 1; letter-spacing: -2px;
+}
+.pb-stat-lbl { color: var(--muted); font-size: .95rem; margin-top: 8px; }
+
+/* ROM strip. */
+.pb-roms-cell { grid-area: roms; }
+.pb-roms { display: flex; flex-wrap: wrap; gap: 22px 26px; align-items: center; }
+.pb-rom { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); transition: color .2s; }
+.pb-rom:hover { color: var(--text); }
+.pb-rom img { border-radius: 7px; display: block; }
+.pb-rom span { font-family: var(--mono); font-size: .92rem; }
+
+@media (max-width: 820px) {
+  .pb-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "hero hero"
+      "log  log"
+      "stat stat"
+      "roms roms";
+  }
+}
+@media (max-width: 520px) {
+  .pb-grid { grid-template-columns: 1fr; grid-template-areas: "hero" "log" "stat" "roms"; }
+}

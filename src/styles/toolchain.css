@@ -1,26 +1,20 @@
-/* Toolchain banner — StormBreaker Clang callout. */
+/* Toolchain banner — StormBreaker Clang callout. Flat bordered block, no glass. */
 .banner {
-  position: relative; border: 1px solid var(--glass-border); border-radius: 22px; overflow: hidden;
-  padding: 48px;
-  background:
-    radial-gradient(600px 300px at 90% 20%, rgba(var(--brand-rgb),0.18), transparent 60%),
-    var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+  position: relative; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  padding: 40px 44px; background: var(--surface);
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
+/* thin brand rule down the left edge, like a code gutter */
+.banner::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--brand); opacity: .5; }
 .banner .txt { max-width: 560px; }
 .banner-title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .banner-badge {
-  font-size: .66rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .3px; text-transform: lowercase;
   color: #e0a458; border: 1px solid rgba(224,164,88,0.35); background: rgba(224,164,88,0.1);
-  padding: 3px 9px; border-radius: 999px;
+  padding: 3px 9px; border-radius: 6px;
 }
 .banner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.6px; }
 .banner p { color: var(--muted); }
-.banner code { font-family: 'Space Grotesk'; color: var(--accent); background: rgba(53,224,212,0.08); padding: 1px 7px; border-radius: 5px; }
+.banner code { font-family: var(--mono); color: var(--brand); background: rgba(var(--brand-rgb),0.08); padding: 1px 7px; border-radius: 5px; }
 
-@media (max-width: 620px) {
-  .banner { padding: 32px 24px; }
-}
+@media (max-width: 620px) { .banner { padding: 30px 24px; } }

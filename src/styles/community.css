@@ -2,9 +2,10 @@
 .community { text-align: center; }
 .social-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
 .social {
-  display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 12px;
-  border: 1px solid var(--border); background: var(--surface); font-weight: 600; font-size: .95rem;
-  transition: transform .18s, border-color .2s, box-shadow .25s;
+  display: flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface);
+  font-family: var(--mono); font-weight: 500; font-size: .9rem;
+  transition: transform .18s, border-color .2s;
 }
-.social:hover { transform: translateY(-3px); border-color: var(--brand); box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+.social:hover { transform: translateY(-3px); border-color: var(--brand); }
 .social svg { width: 20px; height: 20px; fill: currentColor; }

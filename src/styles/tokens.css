@@ -18,6 +18,11 @@
   --brand-text: #0a1020;       /* text/icon colour on brand-filled surfaces */
   --glow: rgba(199, 231, 255, 0.4);
 
+  /* Monospace is a first-class face here: codenames, versions, dates, stats,
+     kicker labels. It's what makes a kernel project read as engineer-built. */
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --ink: #0a0a12;              /* near-black terminal surface, both themes */
+
   /* Frosted-glass surfaces */
   --glass-bg: rgba(22, 24, 44, 0.45);
   --glass-border: rgba(199, 231, 255, 0.14);

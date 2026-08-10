@@ -1,7 +1,7 @@
 /* Footer — brand, quick links, copyright. */
 footer { border-top: 1px solid var(--border); padding: 44px 0 40px; margin-top: 40px; }
 .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.foot-inner .muted { color: var(--faint); font-size: .88rem; }
+.foot-inner .muted { color: var(--faint); font-family: var(--mono); font-size: .8rem; }
 .foot-links { display: flex; gap: 22px; }
-.foot-links a { color: var(--muted); font-size: .9rem; transition: color .2s; }
+.foot-links a { color: var(--muted); font-family: var(--mono); font-size: .85rem; transition: color .2s; }
 .foot-links a:hover { color: var(--text); }
