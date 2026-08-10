@@ -27,8 +27,8 @@
   padding: 22px 24px; transition: border-color .2s, transform .2s;
 }
 .line-card:hover { transform: translateY(-2px); border-color: var(--brand); }
-/* brand gutter for active lines */
-.line-card.ls-active::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 2px; background: var(--brand); border-radius: 2px; opacity: .6; }
+/* active lines get a soft brand tint instead of a left bar */
+.line-card.ls-active { border-color: rgba(var(--brand-rgb),0.28); background: linear-gradient(180deg, rgba(var(--brand-rgb),0.05), transparent 70%), var(--surface); }
 
 .line-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .line-ver { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2rem; letter-spacing: -1px; color: var(--brand); line-height: 1; }
