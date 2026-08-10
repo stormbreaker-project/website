@@ -5,11 +5,16 @@ import { DEVICES } from '../../data/devices';
 import '../../styles/hero.css';
 
 // The numbers worth bragging about — surfaced as feats, not a stats dump.
-const feats: { n: string; l: string }[] = [
-  { n: '1M+', l: 'downloads served' },
-  { n: `${DEVICES.length}`, l: 'devices maintained' },
-  { n: '7 yrs', l: 'in the open, since 2019' },
+// Each rolls up from 0 on scroll-in (see the script below); the final value is
+// server-rendered so no-JS / reduced-motion visitors still see the real number.
+type Feat = { to: number; kind: 'compact' | 'int'; suffix: string; l: string };
+const feats: Feat[] = [
+  { to: 1_000_000, kind: 'compact', suffix: '+', l: 'downloads served' },
+  { to: DEVICES.length, kind: 'int', suffix: '', l: 'devices maintained' },
+  { to: 7, kind: 'int', suffix: ' yrs', l: 'in the open, since 2019' },
 ];
+const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+const fmt = (f: Feat, v: number) => (f.kind === 'compact' ? compact.format(v) : String(Math.round(v))) + f.suffix;
 
 // Ghosted boot log that bleeds behind the hero.
 const boot = [
@@ -45,10 +50,55 @@ const boot = [
     <div class="ph-feats">
       {feats.map((f) => (
         <div class="ph-feat">
-          <div class="ph-feat-n">{f.n}</div>
+          <div class="ph-feat-n" data-to={f.to} data-kind={f.kind} data-suffix={f.suffix}>{fmt(f, f.to)}</div>
           <div class="ph-feat-l">{f.l}</div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  // Roll the feat numbers up from 0 when they scroll into view.
+  const nums = Array.from(document.querySelectorAll<HTMLElement>('.ph-feat-n[data-to]'));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+
+  const paint = (el: HTMLElement, v: number) => {
+    const suffix = el.dataset.suffix ?? '';
+    el.textContent = (el.dataset.kind === 'compact' ? compact.format(v) : String(Math.round(v))) + suffix;
+  };
+
+  const roll = (el: HTMLElement) => {
+    const to = Number(el.dataset.to);
+    const dur = 1400;
+    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+    let start: number | null = null;
+    const step = (ts: number) => {
+      if (start === null) start = ts;
+      const p = Math.min(1, (ts - start) / dur);
+      paint(el, to * ease(p));
+      if (p < 1) requestAnimationFrame(step);
+      else paint(el, to);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!reduce && 'IntersectionObserver' in window && nums.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            roll(e.target as HTMLElement);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.6 },
+    );
+    nums.forEach((el) => {
+      paint(el, 0); // reset before rolling
+      io.observe(el);
+    });
+  }
+</script>
