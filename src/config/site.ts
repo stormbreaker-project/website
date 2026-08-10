@@ -40,6 +40,7 @@ export const NAV: NavItem[] = [
     items: [
       { label: 'About Team StormBreaker', href: '/about/', icon: 'about' },
       { label: 'Maintainers', href: '/about/maintainers/', icon: 'maintainers' },
+      { label: 'Maintenance Charter', href: '/about/charter/', icon: 'guide' },
     ],
   },
   {

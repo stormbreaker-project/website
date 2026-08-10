@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import { preGki, gki, LEGACY_COMMON } from '../../data/charter';
+import '../../styles/charter.css';
+
+const principles = [
+  { h: 'Two axes', p: 'Every device inherits from an upstream LTS line (stable merges, CVEs, generic backports) and a SoC-common tree (vendor drivers). We maintain both, not one kernel per phone.' },
+  { h: 'Backport once', p: 'A generic patchset (RCU, BBR, schedutil, srandom, hardening) lives in a single source and propagates to every device on a line. Vendor patches stay inside their chipset group.' },
+  { h: 'Release trains', p: 'Devices on a line ship together at a tagged patchset level, sb-<version>-rN, so "every 4.19 device is at r7" is a precise, bisectable statement.' },
+  { h: 'CI gate', p: 'A common tag is promoted only after the lead device boots and the whole line builds green, so one bad merge never reaches a release.' },
+];
+
+const groups = [
+  { label: 'pre-gki lines', sub: 'We own the base.', lines: preGki },
+  { label: 'gki lines', sub: "We track Google's ACK, plus a thin vendor delta.", lines: gki },
+];
+
+const repo = (codename: string) =>
+  `https://github.com/stormbreaker-project?q=${encodeURIComponent(codename.split(/[\s/]+/)[0])}&type=repositories`;
+const statusLabel: Record<string, string> = { active: 'active', wip: 'in progress', planned: 'planned' };
+---
+<Base title="Maintenance Charter · Team StormBreaker" description="How Team StormBreaker maintains devices: kernel lines, shared patchsets, and synchronized release trains.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head left">
+          <span class="kicker">maintenance charter</span>
+          <h2>How we maintain devices</h2>
+          <p>We maintain kernel lines, not one kernel per phone. A shared patchset is backported once and propagates across every device on a line, and the whole line ships together as a release train.</p>
+        </div>
+
+        <div class="charter-model">
+          {principles.map((pr, i) => (
+            <div class="cm-card">
+              <span class="cm-idx">{String(i + 1).padStart(2, '0')}</span>
+              <div class="cm-body"><h3>{pr.h}</h3><p>{pr.p}</p></div>
+            </div>
+          ))}
+        </div>
+
+        {groups.map((g) => (
+          <div class="line-group">
+            <div class="line-group-head">
+              <span class="kicker">// {g.label}</span>
+              <span class="line-group-sub">{g.sub}</span>
+            </div>
+            <div class="line-grid">
+              {g.lines.map((line) => (
+                <div class={`line-card ls-${line.status}`}>
+                  <div class="line-top">
+                    <span class="line-ver">{line.version}</span>
+                    <span class={`line-status st-${line.status}`}>{statusLabel[line.status]}</span>
+                  </div>
+                  <div class="line-meta">
+                    <span>{line.era === 'gki' ? 'GKI' : 'pre-GKI'}</span>
+                    {line.soc && <span>· {line.soc}</span>}
+                    {line.rev && <span>· {line.rev}</span>}
+                  </div>
+                  {line.devices.length > 0 ? (
+                    <div class="line-devices">
+                      {line.devices.map((d) => (
+                        <a class={`ldev${d === line.lead ? ' is-lead' : ''}`} href={repo(d)} target="_blank" rel="noopener" title={d === line.lead ? 'lead device' : undefined}>
+                          {d === line.lead && <span class="lead-star" aria-hidden="true">★</span>}{d}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div class="line-empty">devices TBD</div>
+                  )}
+                  {line.note && <p class="line-note">{line.note}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="line-group">
+          <div class="line-group-head">
+            <span class="kicker">// legacy common trees</span>
+            <span class="line-group-sub">Older LTS, maintenance paused.</span>
+          </div>
+          <div class="line-grid">
+            {LEGACY_COMMON.map((line) => (
+              <div class="line-card ls-planned">
+                <div class="line-top">
+                  <span class="line-ver line-ver-sm">{line.version}</span>
+                  <span class="line-status st-planned">paused</span>
+                </div>
+                <div class="line-meta"><span>{line.soc}</span></div>
+                <div class="line-devices">
+                  {line.devices.map((d) => (
+                    <a class="ldev" href={repo(d)} target="_blank" rel="noopener">{d}</a>
+                  ))}
+                </div>
+                {line.note && <p class="line-note">{line.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="charter-foot">Kernel lines and patchset revisions are being finalized as we rebuild. Want to maintain a device? Read the <a href="/contribute/guide/">contributing guide</a>.</p>
+      </div>
+    </section>
+  </main>
+</Base>
