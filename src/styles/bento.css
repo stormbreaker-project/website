@@ -16,6 +16,10 @@
 .pb-cell {
   border: 1px solid var(--border); border-radius: 14px; padding: 26px 28px;
   background: var(--surface); display: flex; flex-direction: column;
+  /* Grid items default to min-width:auto and refuse to shrink below their
+     content (the long git-log lines), which blows the grid past the viewport.
+     min-width:0 lets them shrink so the content truncates instead. */
+  min-width: 0; overflow: hidden;
 }
 .pb-tag {
   font-family: var(--mono); font-size: .74rem; letter-spacing: .4px;
@@ -68,24 +72,30 @@
 .pb-rom img { width: 42px; height: 42px; border-radius: 10px; display: block; }
 .pb-rom span { font-family: var(--mono); font-size: .82rem; line-height: 1.3; }
 
-@media (max-width: 520px) {
-  .pb-roms-cell { justify-content: flex-start; }
-  .pb-roms-cell .pb-tag { position: static; margin-bottom: 14px; }
-  .pb-roms { flex-wrap: wrap; gap: 18px 0; }
-  .pb-rom { flex: 0 0 33.33%; padding: 6px 8px; }
-  .pb-rom + .pb-rom { border-left: 0; }
-}
-
+/* Once cells stack full-width, the ROM tag becomes a normal top label
+   (no absolute overlap) instead of floating over the logos. */
 @media (max-width: 820px) {
   .pb-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "hero hero"
-      "log  log"
-      "stat stat"
-      "roms roms";
+    grid-template-columns: 1fr;
+    grid-template-areas: "hero" "log" "stat" "roms";
   }
+  .pb-roms-cell { justify-content: flex-start; }
+  .pb-roms-cell .pb-tag { position: static; margin-bottom: 16px; }
 }
-@media (max-width: 520px) {
-  .pb-grid { grid-template-columns: 1fr; grid-template-areas: "hero" "log" "stat" "roms"; }
+
+/* Phones: fill the width instead of leaving cards half-empty. */
+@media (max-width: 560px) {
+  .pb { padding: 16px 0 72px; }
+  .pb-grid { gap: 12px; }
+  .pb-cell { padding: 20px; }
+
+  /* stat becomes a compact row: big number beside its label, filling the card */
+  .pb-stat-cell { flex-direction: row; align-items: center; gap: 16px; }
+  .pb-stat-num { font-size: 3.1rem; }
+  .pb-stat-lbl { margin-top: 0; flex: 1; }
+
+  /* roms wrap 3-per-row, drop the vertical dividers */
+  .pb-roms { flex-wrap: wrap; gap: 18px 0; }
+  .pb-rom { flex: 0 0 33.33%; padding: 8px; }
+  .pb-rom + .pb-rom { border-left: 0; }
 }

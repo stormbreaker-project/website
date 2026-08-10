@@ -8,11 +8,17 @@
   transition: transform .2s, border-color .25s;
 }
 .device-card:hover { transform: translateY(-3px); border-color: var(--brand); }
-/* brand gutter rule appears on active devices */
+/* Active / in-progress devices are the story — give them a brand tint and a
+   gutter so they pop; deprecated devices stay quiet. */
+.device-card:has(.dc-active),
+.device-card:has(.dc-wip) {
+  background: linear-gradient(180deg, rgba(var(--brand-rgb),0.06), transparent 72%), var(--surface);
+  border-color: rgba(var(--brand-rgb),0.28);
+}
 .device-card:has(.dc-active)::before,
 .device-card:has(.dc-wip)::before {
   content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 2px;
-  background: var(--brand); border-radius: 2px; opacity: .55;
+  background: var(--brand); border-radius: 2px; opacity: .7;
 }
 
 .device-card .dc-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
