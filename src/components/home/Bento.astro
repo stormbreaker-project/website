@@ -40,7 +40,7 @@ async function fetchRepo(repo: string): Promise<Commit[]> {
     });
     if (!res.ok) return [];
     const data = (await res.json()) as any[];
-    const noise = /^(Merge|fixup!|squash!|Revert)\b/;
+    const noise = /^(Merge\b|Revert\b|fixup!|squash!)/;
     return data
       .filter((c) => !noise.test(String(c.commit?.message ?? '')))
       .slice(0, 2)

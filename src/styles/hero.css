@@ -23,11 +23,8 @@
   font-size: clamp(2.7rem, 8vw, 5.4rem); line-height: .98; letter-spacing: -2.5px;
   margin: 0 0 26px;
 }
-/* Solid brand highlight behind the phrase — flat, committed, no gradient. */
-.ph-mark {
-  background: var(--brand); color: var(--brand-text);
-  padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone;
-}
+/* Brand-coloured phrase — the colour carries it, no highlight block. */
+.ph-mark { color: var(--brand); }
 
 .ph-lead {
   max-width: 620px; margin: 0 0 34px; color: var(--muted);
