@@ -22,14 +22,14 @@
 .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; }
 .brand .mark {
   width: 32px; height: 32px; flex: 0 0 auto;
-  border-radius: 9px; overflow: hidden; box-shadow: 0 0 22px var(--glow);
+  border-radius: 9px; overflow: hidden; box-shadow: 0 0 0 1px var(--border);
 }
 .brand .mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .brand-name { font-size: 1.06rem; letter-spacing: .2px; }
 
 .nav-menu { display: flex; align-items: center; flex: 1; gap: 20px; }
-.nav-center { display: flex; align-items: center; gap: 30px; flex: 1; justify-content: center; }
-.nav-center a.link { color: var(--muted); font-size: .93rem; font-weight: 500; transition: color .2s; }
+.nav-center { display: flex; align-items: center; gap: 26px; flex: 1; justify-content: center; }
+.nav-center a.link { font-family: var(--mono); color: var(--muted); font-size: .84rem; font-weight: 500; letter-spacing: .2px; transition: color .2s; }
 .nav-center a.link:hover { color: var(--text); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 
@@ -67,7 +67,7 @@
 
 .dropdown-trigger {
   display: inline-flex; align-items: center; gap: 5px;
-  font: inherit; font-size: .93rem; font-weight: 500;
+  font-family: var(--mono); font-size: .84rem; font-weight: 500; letter-spacing: .2px;
   color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer;
   transition: color .2s;
 }
