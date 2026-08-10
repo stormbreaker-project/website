@@ -1,28 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" fill="none" role="img" aria-label="StormBreaker is alive">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" fill="none" role="img" aria-label="StormBreaker">
   <defs>
-    <radialGradient id="sbGlow" cx="80%" cy="16%" r="62%">
-      <stop offset="0" stop-color="#C7E7FF" stop-opacity="0.22"/>
+    <linearGradient id="sbBg" x1="0" y1="0" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0c0c18"/>
+      <stop offset="1" stop-color="#07070f"/>
+    </linearGradient>
+    <linearGradient id="sbBolt" x1="600" y1="90" x2="585" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eef5ff"/>
+      <stop offset="0.55" stop-color="#C7E7FF"/>
+      <stop offset="1" stop-color="#8cb9ee"/>
+    </linearGradient>
+    <radialGradient id="sbHalo" cx="595" cy="216" r="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C7E7FF" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#C7E7FF" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="sbGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" stroke="#C7E7FF" stroke-opacity="0.06" stroke-width="1"/>
+    <radialGradient id="sbFade" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <mask id="sbGridMask"><rect width="1200" height="440" fill="url(#sbFade)"/></mask>
+    <pattern id="sbGrid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#8ab4e8" stroke-opacity="0.05" stroke-width="1"/>
     </pattern>
-    <filter id="sbSoft" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="7" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="sbSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9"/>
     </filter>
   </defs>
 
-  <rect width="1200" height="440" fill="#0a0a12"/>
-  <rect width="1200" height="440" fill="url(#sbGrid)"/>
-  <rect width="1200" height="440" fill="url(#sbGlow)"/>
+  <rect width="1200" height="440" fill="url(#sbBg)"/>
+  <g mask="url(#sbGridMask)"><rect width="1200" height="440" fill="url(#sbGrid)"/></g>
+  <rect width="1200" height="440" fill="url(#sbHalo)"/>
 
-  <!-- heartbeat: "alive" -->
-  <polyline points="70,224 322,224 350,224 366,120 384,330 402,180 418,224 476,224 760,224"
-    stroke="#C7E7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#sbSoft)"/>
-
-  <!-- lightning bolt: "the storm" -->
-  <g filter="url(#sbSoft)" transform="translate(928,92) scale(11)">
-    <path d="M13 2 4 14h6l-1 8 9-12h-6z" fill="#C7E7FF"/>
-  </g>
+  <!-- soft ambient glow -->
+  <path d="M619 90 L502 246 L580 246 L567 350 L684 194 L606 194 Z" fill="#C7E7FF" fill-opacity="0.5" filter="url(#sbSoft)"/>
+  <!-- bolt -->
+  <path d="M619 90 L502 246 L580 246 L567 350 L684 194 L606 194 Z" fill="url(#sbBolt)"/>
+  <!-- crisp rim -->
+  <path d="M619 90 L502 246 L580 246 L567 350 L684 194 L606 194 Z" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1" stroke-linejoin="round"/>
 </svg>
