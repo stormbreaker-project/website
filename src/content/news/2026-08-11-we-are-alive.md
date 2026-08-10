@@ -4,10 +4,10 @@ date: 2026-08-11
 tag: Announcement
 author: Team StormBreaker
 cover: /news/alive.svg
-summary: StormBreaker went quiet for a while. It never went away. New home, revived charter, and the work is moving again.
+summary: It went quiet for a while. It never went away. New home, revived charter, and the work is moving again.
 ---
 
-Short version, for everyone who kept asking: **StormBreaker is not dead.**
+Short version, for everyone who kept asking: **StormBreaker Kernel is not dead.**
 
 We went quiet for a stretch. Life pulled contributors in different directions, releases slowed, and the group chats got calm. But the sources never moved, the kernels kept booting, and a lot of you stuck around anyway. We just needed to catch our breath.
 
@@ -35,7 +35,7 @@ Our in-house LLVM/Clang toolchain is in active development again, compiling our 
 
 ## The work is moving
 
-LTS bumps, CLO merges, and real backports are landing across the maintained trees. We upstream the parts OEMs freeze at launch, so your phone keeps getting better long after the box gets thrown away.
+Trees are getting rebased, merges landing, and the backports are going back in. The commit feed on the front page is live, not a museum piece. Expect more devices, cleaner releases, and a faster turnaround as we settle back into a rhythm.
 
 ## Come build with us
 

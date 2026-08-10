@@ -21,15 +21,20 @@
 .nc-more span { display: inline-block; transition: transform .2s; }
 .news-card:hover .nc-more span { transform: translateX(3px); }
 
-/* Featured lead — the newest post, as a bold brand-tinted block. */
+/* Featured lead — the newest post, image-forward with a cover banner. */
 .news-card-featured {
-  padding: 34px 34px 30px;
-  border: 1px solid rgba(var(--brand-rgb), .28); border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(var(--brand-rgb), .06), transparent 74%), var(--surface);
-  margin-bottom: 40px;
+  display: block; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  margin-bottom: 44px; transition: border-color .25s, transform .2s;
 }
+.news-card-featured:hover { border-color: var(--brand); transform: translateY(-3px); }
+.nc-cover {
+  width: 100%; aspect-ratio: 1200 / 440; object-fit: cover; display: block;
+  background: var(--ink); border-bottom: 1px solid var(--border);
+}
+.news-card-featured .nc-body { padding: 30px 34px; }
 .news-card-featured .nc-meta { font-size: .78rem; margin-bottom: 14px; }
-.news-card-featured .nc-title { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.12; letter-spacing: -.9px; }
+.news-card-featured .nc-title { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.12; letter-spacing: -.9px; }
 .news-card-featured .nc-sum { font-size: 1.08rem; margin-top: 16px; }
 
 /* The rest — hairline-divided editorial rows. */

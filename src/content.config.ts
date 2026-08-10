@@ -11,6 +11,7 @@ const news = defineCollection({
     tag: z.string().optional(),
     author: z.string().optional(),
     summary: z.string().optional(),
+    cover: z.string().optional(), // path under /public, e.g. /news/alive.svg
   }),
 });
 

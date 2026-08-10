@@ -5,25 +5,28 @@ export interface Props {
   featured?: boolean;
 }
 const { post, featured = false } = Astro.props;
-const { title, date, tag, summary } = post.data;
+const { title, date, tag, summary, cover } = post.data;
 
 const fmt = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
 const read = Math.max(1, Math.round(words / 200));
 ---
 <a class={`news-card${featured ? ' news-card-featured' : ''}`} href={`/news/${post.id}/`}>
-  <div class="nc-meta">
-    <span>{fmt}</span>
-    <span class="nc-sep">/</span>
-    <span>{read} min read</span>
-    {tag && (
-      <Fragment>
-        <span class="nc-sep">/</span>
-        <span class="nc-tag">{tag}</span>
-      </Fragment>
-    )}
+  {featured && cover && <img class="nc-cover" src={cover} alt="" loading="lazy" />}
+  <div class="nc-body">
+    <div class="nc-meta">
+      <span>{fmt}</span>
+      <span class="nc-sep">/</span>
+      <span>{read} min read</span>
+      {tag && (
+        <Fragment>
+          <span class="nc-sep">/</span>
+          <span class="nc-tag">{tag}</span>
+        </Fragment>
+      )}
+    </div>
+    <h3 class="nc-title">{title}</h3>
+    {summary && <p class="nc-sum">{summary}</p>}
+    <span class="nc-more">Read <span aria-hidden="true">→</span></span>
   </div>
-  <h3 class="nc-title">{title}</h3>
-  {summary && <p class="nc-sum">{summary}</p>}
-  <span class="nc-more">Read <span aria-hidden="true">→</span></span>
 </a>

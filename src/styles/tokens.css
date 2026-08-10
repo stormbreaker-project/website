@@ -55,6 +55,9 @@
   --brand-rgb: 47, 111, 224;
   --brand-text: #ffffff;
   --glow: rgba(47, 111, 224, 0.28);
+  /* Teal accent darkens for light surfaces (the bright dark-mode teal is
+     unreadable on white). Fixes inline code, tags, and active badges. */
+  --accent: #0f766e;
 
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(255, 255, 255, 0.75);
