@@ -1,12 +1,6 @@
 /* "Why StormBreaker" — left-anchored head, a lead card + 4 supporting cards,
    and an "under the hood" terminal panel that matches the hero/bento shell. */
 
-/* Left-anchored head (breaks the centered-template rhythm of other sections). */
-.feat-head { max-width: 640px; margin: 0 0 40px; }
-.feat-head .kicker { font-family: var(--mono); color: var(--brand); font-weight: 500; font-size: .82rem; }
-.feat-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -.8px; margin: 12px 0 14px; }
-.feat-head p { color: var(--muted); font-size: 1.05rem; max-width: 620px; }
-
 /* ---------- why: 1 lead card + 4 ---------- */
 .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .feature {

@@ -6,3 +6,6 @@ section { padding: 82px 0; }
 .section-head .kicker::before { content: "// "; opacity: .6; }
 .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -.8px; margin: 12px 0 14px; }
 .section-head p { color: var(--muted); font-size: 1.05rem; }
+/* Left-anchored variant — the editorial rhythm used by homepage content sections. */
+.section-head.left { text-align: left; margin-left: 0; margin-right: 0; }
+.section-head.left p { margin-left: 0; }
