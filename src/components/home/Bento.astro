@@ -70,27 +70,27 @@ if (commits.length === 0) commits = FALLBACK;
 ---
 <section class="pb">
   <div class="wrap">
-    <div class="pb-grid">
+    <div class="pb-grid" data-stagger>
 
-      <div class="pb-cell pb-hero-cell">
+      <div class="pb-cell reveal pb-hero-cell">
         <span class="pb-tag">the point</span>
         <p class="pb-big">We upstream the garbage OEMs leave behind.</p>
         <p class="pb-sub">LTS, ACK, and CLO merges landed by hand. No stale blobs pretending to be a kernel.</p>
       </div>
 
-      <div class="pb-cell pb-ink pb-log-cell">
+      <div class="pb-cell reveal pb-ink pb-log-cell">
         <div class="pb-log-head"><span class="pb-prompt">$</span> git log --oneline <span class="pb-log-note">// trees</span></div>
         {commits.map((c) => (
           <div class="pb-log-row"><span class="pb-hash">{c.sha}</span><span class="pb-msg">{c.subject}</span></div>
         ))}
       </div>
 
-      <div class="pb-cell pb-stat-cell">
+      <div class="pb-cell reveal pb-stat-cell">
         <div class="pb-stat-num">{active}</div>
         <div class="pb-stat-lbl">devices we still ship for, today</div>
       </div>
 
-      <div class="pb-cell pb-roms-cell">
+      <div class="pb-cell reveal pb-roms-cell">
         <span class="pb-tag">shipped as stock in</span>
         <div class="pb-roms">
           {ROMS.map((r) => (

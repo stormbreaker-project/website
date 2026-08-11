@@ -13,7 +13,7 @@ const featured = DEVICES.filter((d) => d.featured).sort(byActiveThenNewest);
       <p>A handful of the phones we've shipped kernels for over the years, from our first releases to the ones still going.</p>
     </div>
 
-    <div class="device-grid">
+    <div class="device-grid" data-stagger>
       {featured.map((d) => <DeviceCard device={d} />)}
     </div>
 

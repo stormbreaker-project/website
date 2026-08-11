@@ -67,18 +67,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <Footer />
 
     <script>
-      // Reveal-on-scroll, shared across every page.
+      // Reveal-on-scroll. Elements inside a [data-stagger] container cascade in
+      // order (transition-delay by their index); standalone reveals fade in flat.
+      const STEP = 75; // ms between staggered items
       const io = new IntersectionObserver(
         (entries) => {
-          entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-              (e.target as HTMLElement).style.transitionDelay = `${(i % 6) * 60}ms`;
-              e.target.classList.add('in');
-              io.unobserve(e.target);
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            const group = el.closest('[data-stagger]');
+            if (group) {
+              const items = Array.from(group.querySelectorAll('.reveal'));
+              const idx = items.indexOf(el);
+              if (idx > 0) el.style.transitionDelay = `${Math.min(idx, 10) * STEP}ms`;
             }
+            el.classList.add('in');
+            io.unobserve(el);
           });
         },
-        { threshold: 0.12 },
+        { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
       );
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
     </script>

@@ -39,12 +39,22 @@ a { color: inherit; text-decoration: none; }
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 15%, transparent 78%);
 }
 
-/* ---------- Reveal animation (used across sections) ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+/* ---------- Reveal-on-scroll (spring-eased, with variants) ----------
+   Framer-Motion feel in vanilla: an expo ease-out for the "settle", per-group
+   stagger driven by JS (transition-delay), and directional variants. */
+.reveal {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .55s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+  will-change: opacity, transform;
+}
+.reveal[data-reveal="left"]  { transform: translateX(-30px); }
+.reveal[data-reveal="right"] { transform: translateX(30px); }
+.reveal[data-reveal="scale"] { transform: scale(.94); }
+.reveal[data-reveal="fade"]  { transform: none; }
 .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1 !important; transform: none !important; }
   html { scroll-behavior: auto; }
 }

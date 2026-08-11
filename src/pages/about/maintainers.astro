@@ -13,7 +13,7 @@ import '../../styles/maintainers.css';
           <p>The people who maintain StormBreaker, and the devices in their charter.</p>
         </div>
 
-        <div class="maintainer-grid">
+        <div class="maintainer-grid" data-stagger>
           {MAINTAINERS.map((m) => {
             const profile = m.github ? `https://github.com/${m.github}` : '#';
             const ext = m.github ? { target: '_blank', rel: 'noopener' } : {};

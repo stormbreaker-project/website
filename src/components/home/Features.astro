@@ -46,7 +46,7 @@ const buckets = [
       <p>Real engineering, tracked upstream and built for balance. Official and unofficial ROMs have shipped StormBreaker as their stock kernel.</p>
     </div>
 
-    <div class="feature-grid">
+    <div class="feature-grid" data-stagger>
       {features.map((f, i) => (
         <div class={`feature reveal${f.lead ? ' feature-lead' : ''}`}>
           <span class="f-idx">{String(i + 1).padStart(2, '0')}</span>

@@ -28,7 +28,7 @@ const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
         {UPCOMING.length > 0 && (
           <div class="device-year">
             <h3 class="device-year-label">In progress</h3>
-            <div class="device-grid">
+            <div class="device-grid" data-stagger>
               {UPCOMING.map((d) => <DeviceCard device={d} />)}
             </div>
           </div>
@@ -37,7 +37,7 @@ const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
         {active.length > 0 && (
           <div class="device-year">
             <h3 class="device-year-label">Active</h3>
-            <div class="device-grid">
+            <div class="device-grid" data-stagger>
               {active.map((d) => <DeviceCard device={d} />)}
             </div>
           </div>
@@ -46,7 +46,7 @@ const years = Object.keys(groups).sort((a, b) => b.localeCompare(a));
         {years.map((y) => (
           <div class="device-year">
             <h3 class="device-year-label">{y}</h3>
-            <div class="device-grid">
+            <div class="device-grid" data-stagger>
               {groups[y].map((d) => <DeviceCard device={d} />)}
             </div>
           </div>

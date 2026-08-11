@@ -11,7 +11,7 @@ const fmt = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', y
 const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
 const read = Math.max(1, Math.round(words / 200));
 ---
-<a class={`news-card${featured ? ' news-card-featured' : ''}`} href={`/news/${post.id}/`}>
+<a class={`news-card reveal${featured ? ' news-card-featured' : ''}`} href={`/news/${post.id}/`}>
   {featured && cover && <img class="nc-cover" src={cover} alt="" loading="lazy" />}
   <div class="nc-body">
     <div class="nc-meta">

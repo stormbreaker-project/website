@@ -29,9 +29,9 @@ const statusLabel: Record<string, string> = { active: 'active', wip: 'in progres
           <p>We maintain kernel lines, not one kernel per phone. A shared patchset is kept in one place and propagates across every device on a line, and the whole line ships together as a release train.</p>
         </div>
 
-        <div class="charter-model">
+        <div class="charter-model" data-stagger>
           {principles.map((pr, i) => (
-            <div class="cm-card">
+            <div class="cm-card reveal">
               <span class="cm-idx">{String(i + 1).padStart(2, '0')}</span>
               <div class="cm-body"><h3>{pr.h}</h3><p>{pr.p}</p></div>
             </div>
@@ -44,9 +44,9 @@ const statusLabel: Record<string, string> = { active: 'active', wip: 'in progres
               <span class="kicker">// {g.label}</span>
               <span class="line-group-sub">{g.sub}</span>
             </div>
-            <div class="line-grid">
+            <div class="line-grid" data-stagger>
               {g.lines.map((line) => (
-                <div class={`line-card ls-${line.status}`}>
+                <div class={`line-card reveal ls-${line.status}`}>
                   <div class="line-top">
                     <span class="line-ver">{line.version}</span>
                     <span class={`line-status st-${line.status}`}>{statusLabel[line.status]}</span>
@@ -81,7 +81,7 @@ const statusLabel: Record<string, string> = { active: 'active', wip: 'in progres
           </div>
           <div class="line-grid">
             {LEGACY_COMMON.map((line) => (
-              <div class="line-card ls-planned">
+              <div class="line-card reveal ls-planned">
                 <div class="line-top">
                   <span class="line-ver line-ver-sm">{line.version}</span>
                   <span class="line-status st-planned">paused</span>

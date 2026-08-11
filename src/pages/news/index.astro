@@ -25,7 +25,7 @@ const [featured, ...rest] = posts;
           <Fragment>
             <NewsCard post={featured} featured={true} />
             {rest.length > 0 && (
-              <div class="news-list">
+              <div class="news-list" data-stagger>
                 {rest.map((post) => <NewsCard post={post} />)}
               </div>
             )}
