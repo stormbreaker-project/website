@@ -1,37 +1,46 @@
-/* Maintainers page — people cards. */
-.maintainer-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+/* Maintainers page — people cards, flat and mono, matching the site system. */
+.maintainer-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px; align-items: start;
+}
 
 .maintainer-card {
-  display: flex; align-items: flex-start; gap: 16px;
-  width: 340px; max-width: 100%;
+  display: flex; flex-direction: column;
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 20px 22px; transition: transform .2s, border-color .25s, box-shadow .3s;
+  padding: 22px 24px; transition: transform .2s, border-color .25s;
 }
 .maintainer-card:hover { transform: translateY(-3px); border-color: var(--brand); }
+/* Founder / lead gets a soft brand tint, same treatment as active devices. */
+.maintainer-card.is-lead {
+  background: linear-gradient(180deg, rgba(var(--brand-rgb), .06), transparent 72%), var(--surface);
+  border-color: rgba(var(--brand-rgb), .28);
+}
 
+.mcard-top { display: flex; align-items: center; gap: 15px; }
 .mavatar-link { flex: 0 0 auto; display: block; }
-.mavatar {
-  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
-  display: block; border: 1px solid var(--border);
-}
+.mavatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; display: block; border: 1px solid var(--border); }
 .mavatar-fallback {
-  display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: var(--brand-text);
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem;
+  display: grid; place-items: center; background: var(--brand); color: var(--brand-text);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.4rem;
 }
 
-.minfo h3 { font-size: 1.15rem; }
-.minfo .mname { color: var(--text); transition: color .2s; }
-.minfo .mname:hover { color: var(--brand); }
-.minfo .mrole { color: var(--muted); font-size: .9rem; margin-top: 2px; }
-.minfo .mhandle { color: var(--brand); font-family: var(--mono); font-size: .82rem; margin-top: 6px; }
+.mhead { min-width: 0; }
+.mhead h3 { font-size: 1.15rem; line-height: 1.2; }
+.mname { color: var(--text); transition: color .2s; }
+.mname:hover { color: var(--brand); }
+.mrole { font-family: var(--mono); color: var(--brand); font-size: .76rem; margin-top: 5px; letter-spacing: .2px; }
+.maintainer-card:not(.is-lead) .mrole { color: var(--muted); }
+.mhandle { color: var(--faint); font-family: var(--mono); font-size: .78rem; margin-top: 3px; }
 
-.mdevices { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.mdevices-wrap { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
+.mdev-label { font-family: var(--mono); font-size: .72rem; color: var(--faint); display: block; margin-bottom: 10px; }
+.mdevices { display: flex; flex-wrap: wrap; gap: 6px; }
 .mdevice {
   font-family: var(--mono); font-size: .72rem; font-weight: 500;
   color: var(--muted); border: 1px solid var(--border); background: var(--surface-2);
-  padding: 2px 8px; border-radius: 6px; transition: color .2s, border-color .2s;
+  padding: 2px 9px; border-radius: 6px; transition: color .2s, border-color .2s;
 }
 .mdevice:hover { color: var(--brand); border-color: var(--brand); }
 
-.maintainers-cta { text-align: center; margin-top: 44px; color: var(--muted); }
+.maintainers-cta { color: var(--muted); margin-top: 40px; }
+.maintainers-cta a { color: var(--brand); }

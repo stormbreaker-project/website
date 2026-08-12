@@ -7,37 +7,45 @@ import '../../styles/maintainers.css';
   <main>
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">The team</span>
+        <div class="section-head left">
+          <span class="kicker">the team</span>
           <h2>Maintainers</h2>
-          <p>The people who maintain StormBreaker, and the devices in their charter.</p>
+          <p>The people who keep StormBreaker moving, and the devices in their charter.</p>
         </div>
 
         <div class="maintainer-grid" data-stagger>
           {MAINTAINERS.map((m) => {
             const profile = m.github ? `https://github.com/${m.github}` : '#';
             const ext = m.github ? { target: '_blank', rel: 'noopener' } : {};
+            const isLead = /lead|founder/i.test(m.role);
+            const n = m.devices?.length ?? 0;
             return (
-              <div class="maintainer-card reveal">
-                <a class="mavatar-link" href={profile} aria-label={m.name} {...ext}>
-                  {m.github ? (
-                    <img class="mavatar" src={`https://github.com/${m.github}.png?size=160`} alt="" width="64" height="64" loading="lazy" />
-                  ) : (
-                    <span class="mavatar mavatar-fallback">{m.name.charAt(0)}</span>
-                  )}
-                </a>
-                <div class="minfo">
-                  <h3><a class="mname" href={profile} {...ext}>{m.name}</a></h3>
-                  <div class="mrole">{m.role}</div>
-                  {m.github && m.github !== m.name && <div class="mhandle">@{m.github}</div>}
-                  {m.devices && m.devices.length > 0 && (
+              <div class={`maintainer-card reveal${isLead ? ' is-lead' : ''}`}>
+                <div class="mcard-top">
+                  <a class="mavatar-link" href={profile} aria-label={m.name} {...ext}>
+                    {m.github ? (
+                      <img class="mavatar" src={`https://github.com/${m.github}.png?size=160`} alt="" width="60" height="60" loading="lazy" />
+                    ) : (
+                      <span class="mavatar mavatar-fallback">{m.name.charAt(0)}</span>
+                    )}
+                  </a>
+                  <div class="mhead">
+                    <h3><a class="mname" href={profile} {...ext}>{m.name}</a></h3>
+                    <div class="mrole">{m.role}</div>
+                    {m.github && m.github !== m.name && <div class="mhandle">@{m.github}</div>}
+                  </div>
+                </div>
+
+                {n > 0 && m.devices && (
+                  <div class="mdevices-wrap">
+                    <span class="mdev-label">maintains {n} {n === 1 ? 'device' : 'devices'}</span>
                     <div class="mdevices">
                       {m.devices.map((d) => (
                         <a class="mdevice" href={`https://github.com/stormbreaker-project/${d.repo}`} target="_blank" rel="noopener">{d.codename}</a>
                       ))}
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             );
           })}
