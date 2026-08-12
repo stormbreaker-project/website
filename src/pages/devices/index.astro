@@ -20,20 +20,19 @@ const stats = [
   { n: UPCOMING.length, l: 'in progress' },
 ];
 ---
-<Base title="Devices · Team StormBreaker" description="Every device Team StormBreaker has built kernels for since October 2019.">
+<Base title="Devices · Team StormBreaker" description="Every device Team StormBreaker has built kernels for.">
   <main>
     <section>
       <div class="wrap">
         <div class="section-head left" style="margin-bottom:26px">
           <span class="kicker">the fleet</span>
           <h2>Devices we've built for</h2>
-          <p>Every phone StormBreaker has shipped a kernel for, from our first releases in October 2019 to today.</p>
+          <p>Every phone StormBreaker has shipped a kernel for, from our first releases in 2019 to today.</p>
           <a class="devices-charter-link" href="/devices/charter/">See how these are maintained → the Maintenance Charter</a>
         </div>
 
         <div class="devices-stats">
           {stats.map((s) => (<span class="dstat"><b>{s.n}</b> {s.l}</span>))}
-          <span class="dstat dstat-since">since October 2019</span>
         </div>
 
         {UPCOMING.length > 0 && (
