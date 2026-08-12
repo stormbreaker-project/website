@@ -68,6 +68,7 @@ export const NAV: NavItem[] = [
     items: [
       { label: 'Contributing guide', href: '/contribute/guide/', icon: 'guide' },
       { label: 'Donate', href: '/contribute/donate/', icon: 'donate' },
+      { label: 'Sponsors', href: '/contribute/sponsors/', icon: 'star' },
     ],
   },
 ];

@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SOCIAL } from '../../config/site';
+import '../../styles/sponsors.css';
+
+const subject = encodeURIComponent('Sponsoring Team StormBreaker');
+---
+<Base title="Sponsors · Team StormBreaker" description="Sponsor Team StormBreaker and help keep the servers on and the kernels compiling.">
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head left">
+          <span class="kicker">sponsors</span>
+          <h2>Sponsors</h2>
+          <p>The people and companies who help keep StormBreaker running. There is a spot here with your name on it.</p>
+        </div>
+
+        <div class="sponsor-grid" data-stagger>
+          <div class="sponsor-slot reveal"><span>your logo here</span></div>
+          <div class="sponsor-slot reveal"><span>your logo here</span></div>
+          <div class="sponsor-slot reveal"><span>your logo here</span></div>
+        </div>
+
+        <div class="sponsor-note">
+          <p>
+            StormBreaker has run on volunteer time and too much coffee since 2019. We have not had a
+            sponsor yet, and honestly that is completely fine. But if you or your company want to help
+            cover servers, CI and test devices, we will proudly put you right up here.
+          </p>
+          <p class="sponsor-punch">We will update this page the moment someone backs us. Could be you. :)</p>
+
+          <div class="sponsor-cta">
+            <a class="btn btn-primary" href={`mailto:${SOCIAL.email}?subject=${subject}`}>Become a sponsor</a>
+            <a class="btn btn-ghost" href="/contribute/donate/">Or just tip us instead →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

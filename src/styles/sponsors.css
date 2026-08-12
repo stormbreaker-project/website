@@ -1,0 +1,17 @@
+/* Sponsors page — a friendly empty state with placeholder slots. */
+.sponsor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 44px; }
+.sponsor-slot {
+  display: grid; place-items: center; min-height: 132px;
+  border: 1px dashed var(--border); border-radius: var(--radius); background: var(--surface);
+  transition: border-color .25s, transform .2s;
+}
+.sponsor-slot:hover { border-color: var(--brand); transform: translateY(-3px); }
+.sponsor-slot span { font-family: var(--mono); font-size: .82rem; color: var(--faint); letter-spacing: .3px; transition: color .2s; }
+.sponsor-slot:hover span { color: var(--brand); }
+
+.sponsor-note { max-width: 640px; }
+.sponsor-note p { color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
+.sponsor-punch { color: var(--text); font-weight: 500; margin-top: 8px; }
+.sponsor-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+@media (max-width: 640px) { .sponsor-grid { grid-template-columns: 1fr; } }
