@@ -37,11 +37,22 @@
 /* Per-year sections on the Devices page */
 .device-year { margin-bottom: 44px; }
 .device-year:last-child { margin-bottom: 0; }
+/* Fleet summary line under the head. */
+.devices-stats {
+  display: flex; flex-wrap: wrap; gap: 8px 22px;
+  font-family: var(--mono); font-size: .85rem; color: var(--muted);
+  margin-bottom: 44px; padding-bottom: 22px; border-bottom: 1px solid var(--border);
+}
+.dstat b { color: var(--brand); font-weight: 700; }
+.dstat-since { color: var(--faint); }
+
 .device-year-label {
+  display: flex; align-items: baseline; gap: 10px;
   font-family: var(--mono); font-size: .95rem; font-weight: 500; color: var(--brand);
   letter-spacing: .3px; margin-bottom: 18px; padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
 }
+.dyl-count { font-family: var(--mono); color: var(--faint); font-weight: 400; font-size: .82rem; }
 
 /* Home-page preview CTA */
 .devices-cta { text-align: center; margin-top: 36px; }
