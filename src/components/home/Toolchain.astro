@@ -4,22 +4,42 @@ import '../../styles/toolchain.css';
 ---
 <section id="toolchain">
   <div class="wrap">
-    <div class="banner reveal">
-      <div class="txt">
-        <span class="banner-kicker">// toolchain</span>
-        <div class="banner-title">
-          <h2>StormBreaker Clang</h2>
-          <span class="banner-badge"><span class="dot"></span>active</span>
+    <div class="section-head left reveal">
+      <span class="kicker">the build stack</span>
+      <h2>Built with our own tools</h2>
+      <p>The compiler and the build scripts that turn kernel source into a flashable zip. Both in-house, both open.</p>
+    </div>
+
+    <div class="tool-stack" data-stagger>
+      <div class="banner reveal">
+        <div class="txt">
+          <span class="banner-kicker">// compiler</span>
+          <div class="banner-title">
+            <h2>StormBreaker Clang</h2>
+            <span class="banner-badge"><span class="dot"></span>active</span>
+          </div>
+          <p>Our in-house LLVM/Clang toolchain, built to compile StormBreaker kernels. Back in active development after a quiet spell.</p>
+          <code class="banner-cmd">make CC=clang LLVM=1</code>
         </div>
-        <p>
-          Our own optimized LLVM/Clang toolchain, built in house to compile StormBreaker kernels.
-          Back in active development after a quiet spell.
-        </p>
-        <code class="banner-cmd">make CC=clang LLVM=1</code>
+        <a class="btn btn-primary" href="https://github.com/stormbreaker-project/stormbreaker-clang" target="_blank" rel="noopener">
+          View the compiler <Icon name="arrowRight" />
+        </a>
       </div>
-      <a class="btn btn-primary" href="https://github.com/stormbreaker-project/stormbreaker-clang" target="_blank" rel="noopener">
-        View the toolchain <Icon name="arrowRight" />
-      </a>
+
+      <div class="banner reveal">
+        <div class="txt">
+          <span class="banner-kicker">// build tool</span>
+          <div class="banner-title">
+            <h2>sworkflow</h2>
+            <span class="banner-badge"><span class="dot"></span>active</span>
+          </div>
+          <p>The build scripts we use to compile and package every kernel. Configure, cross-compile, generate DTBO, and wrap it with AnyKernel3, in one command.</p>
+          <code class="banner-cmd">{"sw build <device>"}</code>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/stormbreaker-project/sworkflow" target="_blank" rel="noopener">
+          View sworkflow <Icon name="arrowRight" />
+        </a>
+      </div>
     </div>
   </div>
 </section>

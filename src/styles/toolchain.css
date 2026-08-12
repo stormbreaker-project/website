@@ -1,5 +1,7 @@
-/* Toolchain banner — StormBreaker Clang callout. Flat block, code-gutter rule,
-   mono details, live "active" status. */
+/* Toolchain — the build stack: two callouts (compiler + build tool),
+   flat blocks with a code-gutter rule, mono details, live "active" status. */
+.tool-stack { display: flex; flex-direction: column; gap: 16px; }
+
 .banner {
   position: relative; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   padding: 36px 44px; background: var(--surface);
