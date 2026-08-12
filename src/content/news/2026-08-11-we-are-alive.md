@@ -2,7 +2,7 @@
 title: We're alive, and we're building again
 date: 2026-08-11
 tag: Announcement
-author: Team StormBreaker
+author: Saalim Quadri
 cover: /news/alive.svg
 summary: It went quiet for a while. It never went away. New home, revived charter, and the work is moving again.
 ---
