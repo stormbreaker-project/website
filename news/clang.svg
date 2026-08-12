@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" fill="none" role="img" aria-label="StormBreaker Clang">
+  <defs>
+    <linearGradient id="cbBg" x1="0" y1="0" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0c0c18"/>
+      <stop offset="1" stop-color="#07070f"/>
+    </linearGradient>
+    <linearGradient id="cbWord" x1="0" y1="180" x2="0" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f8ff"/>
+      <stop offset="1" stop-color="#9fc8f4"/>
+    </linearGradient>
+    <radialGradient id="cbHalo" cx="600" cy="212" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C7E7FF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#C7E7FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cbFade" cx="50%" cy="50%" r="62%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <mask id="cbGridMask"><rect width="1200" height="440" fill="url(#cbFade)"/></mask>
+    <pattern id="cbGrid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#8ab4e8" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="440" fill="url(#cbBg)"/>
+  <g mask="url(#cbGridMask)"><rect width="1200" height="440" fill="url(#cbGrid)"/></g>
+  <rect width="1200" height="440" fill="url(#cbHalo)"/>
+
+  <text x="600" y="232" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="78" font-weight="500">
+    <tspan fill="#6f88a8">$ </tspan><tspan fill="url(#cbWord)">clang</tspan><tspan fill="#C7E7FF"> ▮</tspan>
+  </text>
+  <text x="600" y="292" text-anchor="middle" font-family="ui-monospace, monospace" font-size="21" letter-spacing="1" fill="#5b6b84">in-house llvm · tuned for kernels</text>
+</svg>
