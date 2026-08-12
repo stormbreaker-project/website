@@ -17,8 +17,8 @@ const milestones = [
   <main>
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">Our story</span>
+        <div class="section-head left">
+          <span class="kicker">our story</span>
           <h2>About Team StormBreaker</h2>
           <p>A volunteer community building custom Android kernels, in the open, since October 2019.</p>
         </div>
@@ -32,9 +32,9 @@ const milestones = [
           are all still here.
         </p>
 
-        <div class="timeline">
+        <div class="timeline" data-stagger>
           {milestones.map((m) => (
-            <div class="milestone">
+            <div class="milestone reveal">
               <div class="year">{m.year}</div>
               <h3>{m.title}</h3>
               <p>{m.body}</p>
