@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { MAINTAINERS } from '../../data/maintainers';
+import { MAINTAINERS, PAST_MAINTAINERS } from '../../data/maintainers';
 import '../../styles/maintainers.css';
 ---
 <Base title="Maintainers · Team StormBreaker" description="The people who build and maintain Team StormBreaker kernels.">
@@ -38,7 +38,6 @@ import '../../styles/maintainers.css';
 
                 {n > 0 && m.devices && (
                   <div class="mdevices-wrap">
-                    <span class="mdev-label">maintains {n} {n === 1 ? 'device' : 'devices'}</span>
                     <div class="mdevices">
                       {m.devices.map((d) => (
                         <a class="mdevice" href={`https://github.com/stormbreaker-project/${d.repo}`} target="_blank" rel="noopener">{d.codename}</a>
@@ -50,6 +49,31 @@ import '../../styles/maintainers.css';
             );
           })}
         </div>
+
+        {PAST_MAINTAINERS.length > 0 && (
+          <div class="past-block">
+            <div class="section-subhead">
+              <h3>Past maintainers</h3>
+              <p>People who kept devices alive along the way. Thank you.</p>
+            </div>
+            <div class="alumni" data-stagger>
+              {PAST_MAINTAINERS.map((m) => {
+                const profile = m.github ? `https://github.com/${m.github}` : '#';
+                const ext = m.github ? { target: '_blank', rel: 'noopener' } : {};
+                return (
+                  <a class="alum reveal" href={profile} {...ext}>
+                    {m.github ? (
+                      <img class="alum-avatar" src={`https://github.com/${m.github}.png?size=96`} alt="" width="28" height="28" loading="lazy" />
+                    ) : (
+                      <span class="alum-avatar alum-fallback">{m.name.charAt(0)}</span>
+                    )}
+                    <span class="alum-name">{m.name}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         <p class="maintainers-cta">
           Want to maintain a device? Read the <a href="/contribute/guide/">contributing guide</a>.

@@ -33,7 +33,6 @@
 .mhandle { color: var(--faint); font-family: var(--mono); font-size: .78rem; margin-top: 3px; }
 
 .mdevices-wrap { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
-.mdev-label { font-family: var(--mono); font-size: .72rem; color: var(--faint); display: block; margin-bottom: 10px; }
 .mdevices { display: flex; flex-wrap: wrap; gap: 6px; }
 .mdevice {
   font-family: var(--mono); font-size: .72rem; font-weight: 500;
@@ -42,5 +41,26 @@
 }
 .mdevice:hover { color: var(--brand); border-color: var(--brand); }
 
-.maintainers-cta { color: var(--muted); margin-top: 40px; }
+/* Past maintainers — a quiet alumni strip. */
+.past-block { margin-top: 56px; }
+.section-subhead { margin-bottom: 20px; }
+.section-subhead h3 { font-size: 1.3rem; letter-spacing: -.3px; }
+.section-subhead p { color: var(--muted); margin-top: 6px; font-size: .95rem; }
+
+.alumni { display: flex; flex-wrap: wrap; gap: 10px; }
+.alum {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+  padding: 6px 15px 6px 6px; transition: border-color .2s, transform .2s;
+}
+.alum:hover { border-color: var(--brand); transform: translateY(-2px); }
+.alum-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); flex: 0 0 auto; }
+.alum-fallback {
+  display: grid; place-items: center; background: var(--surface-2); color: var(--muted);
+  font-family: var(--mono); font-size: .8rem; font-weight: 500;
+}
+.alum-name { font-family: var(--mono); font-size: .82rem; color: var(--muted); transition: color .2s; }
+.alum:hover .alum-name { color: var(--text); }
+
+.maintainers-cta { color: var(--muted); margin-top: 44px; }
 .maintainers-cta a { color: var(--brand); }

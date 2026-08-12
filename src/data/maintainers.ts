@@ -17,6 +17,16 @@ export const MAINTAINERS: Maintainer[] = [
     devices: [{ codename: 'billie', repo: 'linux-oneplus-billie' }],
   },
   {
+    name: 'Sreekanth Palakurthi',
+    role: 'Co-Founder',
+    github: 'SreekanthPalakurthi',
+  },
+  {
+    name: 'Giovanni',
+    role: 'Lead',
+    github: 'ItsVixano',
+  },
+  {
     name: 'kardebayan',
     role: 'Maintainer',
     github: 'kardebayan',
@@ -34,4 +44,12 @@ export const MAINTAINERS: Maintainer[] = [
     github: 'hridaya2004',
     devices: [{ codename: 'gauguin', repo: 'linux-xiaomi-gauguin' }],
   },
+];
+
+// Maintainers who kept devices alive in the past. Thank you.
+export const PAST_MAINTAINERS: Maintainer[] = [
+  { name: 'Forenche', role: 'Past maintainer', github: 'Forenche' },
+  { name: 'sohamxda7', role: 'Past maintainer', github: 'sohamxda7' },
+  { name: 'starlight5234', role: 'Past maintainer', github: 'starlight5234' },
+  { name: 'susandahal', role: 'Past maintainer', github: 'susandahal' },
 ];
