@@ -41,7 +41,7 @@ const statusLabel: Record<string, string> = { active: 'active', wip: 'in progres
         {groups.map((g) => (
           <div class="line-group">
             <div class="line-group-head">
-              <span class="kicker">// {g.label}</span>
+              <span class="kicker">{g.label}</span>
               <span class="line-group-sub">{g.sub}</span>
             </div>
             <div class="line-grid" data-stagger>
@@ -76,7 +76,7 @@ const statusLabel: Record<string, string> = { active: 'active', wip: 'in progres
 
         <div class="line-group">
           <div class="line-group-head">
-            <span class="kicker">// legacy common trees</span>
+            <span class="kicker">legacy common trees</span>
             <span class="line-group-sub">Older LTS, maintenance paused.</span>
           </div>
           <div class="line-grid">

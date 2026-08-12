@@ -42,7 +42,6 @@
   letter-spacing: .3px; margin-bottom: 18px; padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
 }
-.device-year-label::before { content: "// "; opacity: .55; }
 
 /* Home-page preview CTA */
 .devices-cta { text-align: center; margin-top: 36px; }
