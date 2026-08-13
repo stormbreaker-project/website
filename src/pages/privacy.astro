@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import { SOCIAL } from '../config/site';
+import '../styles/article.css';
+
+const updated = '13 August 2026';
+---
+<Base title="Privacy Policy · Team StormBreaker" description="How Team StormBreaker handles your data: we don't collect it. The details, in plain English.">
+  <main>
+    <section>
+      <div class="wrap">
+        <article class="article">
+          <a class="back" href="/">← Back home</a>
+          <header class="article-head">
+            <div class="nc-meta"><span class="nc-tag">Legal</span><span class="nc-sep">/</span><span>Updated {updated}</span></div>
+            <h1>Privacy Policy</h1>
+          </header>
+
+          <div class="prose">
+            <p>
+              Short version: Team StormBreaker does not collect your personal data. We have no accounts,
+              no analytics, and no trackers. This page explains the few technical details anyway.
+            </p>
+
+            <h2>What we collect</h2>
+            <p>
+              Nothing directly. <strong>stormbreaker.squadri.me</strong> is a static website. There are no
+              accounts to create, no forms that send us your data, and no analytics or advertising scripts.
+            </p>
+
+            <h2>Your device</h2>
+            <p>
+              The only thing stored is your theme choice (light or dark), saved in your browser's local
+              storage under the key <code>sb-theme</code>. It never leaves your device and we never see it.
+              Clearing your browser data removes it. We do not use cookies.
+            </p>
+
+            <h2>Hosting and server logs</h2>
+            <p>
+              The site is hosted on GitHub Pages. Like any web host, GitHub may automatically log standard
+              technical information such as your IP address and browser type when you load a page, for
+              security and operational reasons. This is handled by GitHub under the GitHub Privacy Statement,
+              not by us.
+            </p>
+
+            <h2>Third-party content</h2>
+            <p>To keep the site fast and simple, some content loads from other services:</p>
+            <ul>
+              <li>Fonts from Google Fonts (<code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>).</li>
+              <li>Avatars and project logos from GitHub (<code>github.com</code>).</li>
+            </ul>
+            <p>
+              These providers may receive your IP address as part of delivering that content, under their
+              own privacy policies.
+            </p>
+
+            <h2>Links that leave the site</h2>
+            <p>
+              When you click a link to download a build, donate, or join a chat, you leave our site and are
+              subject to that service's own privacy policy. This includes SourceForge (downloads), PayPal
+              (donations), and Telegram, Discord and X (community).
+            </p>
+
+            <h2>Children</h2>
+            <p>
+              StormBreaker is a general-audience project about Android kernels and is not directed at
+              children under 13.
+            </p>
+
+            <h2>Changes</h2>
+            <p>
+              We may update this policy as the project evolves. The date at the top changes when we do.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+              Questions about privacy? Email us at
+              <a href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Base>

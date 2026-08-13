@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import { SOCIAL } from '../config/site';
+import '../styles/article.css';
+
+const updated = '13 August 2026';
+---
+<Base title="Terms & Conditions · Team StormBreaker" description="The terms for using the Team StormBreaker website and the open-source software we publish.">
+  <main>
+    <section>
+      <div class="wrap">
+        <article class="article">
+          <a class="back" href="/">← Back home</a>
+          <header class="article-head">
+            <div class="nc-meta"><span class="nc-tag">Legal</span><span class="nc-sep">/</span><span>Updated {updated}</span></div>
+            <h1>Terms &amp; Conditions</h1>
+          </header>
+
+          <div class="prose">
+            <p>
+              By using <strong>stormbreaker.squadri.me</strong> and the software we publish, you agree to
+              these terms. Team StormBreaker is a volunteer open-source project, not a company.
+            </p>
+
+            <h2>The software</h2>
+            <p>
+              Team StormBreaker builds custom Linux kernels and tools for Android devices. Our source code
+              is open and released under the GNU General Public License (GPL). You are free to use, study,
+              modify and redistribute it under the terms of that license.
+            </p>
+
+            <h2>Flashing is at your own risk</h2>
+            <p>
+              Custom kernels are for advanced users. Installing one usually requires an unlocked bootloader
+              and root access, and it can void your warranty, wipe your data, or in rare cases leave a device
+              unbootable. You install and use our software <strong>entirely at your own risk</strong>. You are
+              responsible for reading instructions, keeping backups, and knowing what you are doing.
+            </p>
+
+            <h2>No warranty</h2>
+            <p>
+              Our software and this website are provided "as is", without warranty of any kind, express or
+              implied. To the fullest extent permitted by law, Team StormBreaker and its contributors are not
+              liable for any damage, data loss, or device malfunction arising from the use of our kernels,
+              tools, or this site.
+            </p>
+
+            <h2>Downloads and donations</h2>
+            <p>
+              Downloads are hosted on third-party services such as SourceForge. Donations are handled by
+              PayPal. We do not process payments ourselves and never see your payment details. Donations are
+              voluntary gifts, not purchases, and are non-refundable. No feature is ever paywalled.
+            </p>
+
+            <h2>Trademarks and third parties</h2>
+            <p>
+              Android, device names, chipset names and Custom ROM projects mentioned on this site are the
+              property of their respective owners, and their mention does not imply endorsement. Links to
+              third-party sites are provided for convenience; we are not responsible for their content.
+            </p>
+
+            <h2>Acceptable use</h2>
+            <p>
+              Please do not use our project, repositories or community spaces to harass others, distribute
+              malware, or break the law. Our community spaces are also governed by our
+              <a href="/about/coc/">Code of Conduct</a>.
+            </p>
+
+            <h2>Changes</h2>
+            <p>
+              We may update these terms as the project evolves. Continued use of the site means you accept
+              the current version.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+              Questions? Email us at <a href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Base>
