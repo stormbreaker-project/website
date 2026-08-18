@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { SOCIAL } from '../../config/site';
+import { AREAS } from '../../data/projects';
+import '../../styles/contribute-projects.css';
+---
+<Base
+  title="Where to contribute · Team StormBreaker"
+  description="Everything Team StormBreaker works on — kernels, OS, apps, tooling and design. Pick a layer you know and jump in."
+>
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head left">
+          <span class="kicker">// contribute</span>
+          <h2>Pick where you want to contribute.</h2>
+          <p>
+            We work across the whole Android stack — kernels, the OS, the apps, and the design system
+            that ties them together. Find the layer you know, and jump in. No permission needed.
+          </p>
+        </div>
+
+        {AREAS.map((area) => (
+          <div class="carea">
+            <div class="carea-head">
+              <h3 class="carea-label">{area.label}</h3>
+              <span class="carea-skill">{area.skill}</span>
+              <span class="carea-org">{area.org}</span>
+            </div>
+
+            <div class="cproj-grid" data-stagger>
+              {area.projects.map((p) => (
+                <a class="cproj reveal" href={p.href} target="_blank" rel="noopener">
+                  <div class="cproj-top">
+                    <span class="cproj-name">{p.name}</span>
+                    {p.star && <span class="cproj-star">{p.star}</span>}
+                    {p.wip && <span class="cproj-wip">early</span>}
+                  </div>
+                  <p class="cproj-desc">{p.desc}</p>
+                  <div class="cproj-foot">
+                    <div class="cproj-stack">
+                      {p.stack.map((s) => <span class="cproj-tag">{s}</span>)}
+                    </div>
+                    <span class="cproj-go">contribute <Icon name="arrowUpRight" /></span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="cnote">
+          <h3>Not a coder? Still plenty to do.</h3>
+          <p>
+            Test builds and report regressions, help triage issues, request a device, translate an app,
+            or just tip us so the servers stay on. All of it counts.
+          </p>
+          <div class="cnote-cta">
+            <a class="btn btn-primary" href="/contribute/guide/">Read the contributing guide</a>
+            <a class="btn btn-ghost" href={SOCIAL.telegram} target="_blank" rel="noopener">Say hi on Telegram →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

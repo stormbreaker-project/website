@@ -66,6 +66,7 @@ export const NAV: NavItem[] = [
   {
     label: 'Contribute',
     items: [
+      { label: 'Where to contribute', href: '/contribute/projects/', icon: 'devices' },
       { label: 'Contributing guide', href: '/contribute/guide/', icon: 'guide' },
       { label: 'Donate', href: '/contribute/donate/', icon: 'donate' },
       { label: 'Sponsors', href: '/contribute/sponsors/', icon: 'star' },

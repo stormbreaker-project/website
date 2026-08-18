@@ -1,0 +1,76 @@
+/* Contribution hub — every project grouped by layer, each a card you can jump
+   into. Terminal/blueprint language, same as the rest of the site. */
+
+.carea { margin-bottom: 46px; }
+.carea:last-of-type { margin-bottom: 40px; }
+
+.carea-head {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.carea-label {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; letter-spacing: -.5px;
+}
+.carea-skill { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.carea-org {
+  margin-left: auto; font-family: var(--mono); font-size: .7rem;
+  letter-spacing: .2px; color: var(--faint);
+}
+
+/* ---- project cards ---- */
+.cproj-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(282px, 1fr)); gap: 16px;
+}
+.cproj {
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); padding: 20px 22px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.cproj:hover { border-color: var(--brand); transform: translateY(-3px); }
+
+.cproj-top { display: flex; align-items: center; gap: 9px; }
+.cproj-name {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.12rem; letter-spacing: -.3px;
+  margin-right: auto;
+}
+.cproj-star { font-family: var(--mono); font-size: .72rem; color: var(--accent); font-weight: 500; }
+.cproj-wip {
+  font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .5px;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(53, 224, 212, 0.3); border-radius: 5px; padding: 1px 6px;
+}
+
+.cproj-desc { color: var(--muted); font-size: .92rem; line-height: 1.55; flex: 1; }
+
+.cproj-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 2px; }
+.cproj-stack { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.cproj-tag {
+  font-family: var(--mono); font-size: .68rem; color: var(--faint);
+  border: 1px solid var(--border); border-radius: 5px; padding: 2px 7px; white-space: nowrap;
+}
+.cproj-go {
+  display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;
+  font-family: var(--mono); font-size: .76rem; color: var(--brand);
+  opacity: 0; transform: translateX(-4px); transition: opacity .2s, transform .2s;
+}
+.cproj-go svg { width: 13px; height: 13px; }
+.cproj:hover .cproj-go { opacity: 1; transform: translateX(0); }
+
+/* ---- non-code closing note ---- */
+.cnote {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface-2); padding: 30px 32px; margin-top: 8px;
+}
+.cnote h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; letter-spacing: -.4px; }
+.cnote p { color: var(--muted); margin: 10px 0 20px; max-width: 62ch; line-height: 1.6; }
+.cnote-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* On touch / no-hover, the "contribute" affordance is always visible. */
+@media (hover: none) {
+  .cproj-go { opacity: 1; transform: none; }
+}
+@media (max-width: 560px) {
+  .cnote { padding: 24px 22px; }
+  .carea-org { margin-left: 0; width: 100%; }
+}
