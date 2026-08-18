@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "posts": [
+    {
+      "id": "2026-08-12-stormbreaker-clang-default",
+      "title": "StormBreaker Clang is now our default toolchain",
+      "date": "2026-08-12",
+      "tag": "Toolchain",
+      "author": "Saalim Quadri",
+      "summary": "Our in-house LLVM/Clang build is back, and from here on it compiles every StormBreaker kernel by default. Here is exactly how it is built.",
+      "cover": "https://stormbreaker.squadri.me/news/clang.svg",
+      "url": "https://stormbreaker.squadri.me/news/2026-08-12-stormbreaker-clang-default/",
+      "reading_minutes": 2
+    },
+    {
+      "id": "2026-08-12-sworkflow",
+      "title": "sworkflow: one command to build a kernel",
+      "date": "2026-08-12",
+      "tag": "Toolchain",
+      "author": "Saalim Quadri",
+      "summary": "sworkflow is the build tool that compiles and packages every StormBreaker kernel. If Clang is the compiler, this is what drives it.",
+      "cover": "https://stormbreaker.squadri.me/news/sworkflow.svg",
+      "url": "https://stormbreaker.squadri.me/news/2026-08-12-sworkflow/",
+      "reading_minutes": 2
+    },
+    {
+      "id": "2026-08-11-we-are-alive",
+      "title": "We're alive, and we're building again",
+      "date": "2026-08-11",
+      "tag": "Announcement",
+      "author": "Saalim Quadri",
+      "summary": "It went quiet for a while. It never went away. New home, revived charter, and the work is moving again.",
+      "cover": "https://stormbreaker.squadri.me/news/alive.svg",
+      "url": "https://stormbreaker.squadri.me/news/2026-08-11-we-are-alive/",
+      "reading_minutes": 2
+    }
+  ]
+}
