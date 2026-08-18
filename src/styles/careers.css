@@ -1,0 +1,90 @@
+/* Careers — voluntary, learning-first "join the team" page. Honest trade up
+   top, roles as cards, then how to join. Same terminal/blueprint language. */
+
+/* ---- the honest trade: can't vs can ---- */
+.deal {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 56px;
+}
+.deal-col {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px 26px; background: var(--surface);
+}
+.deal-can { border-color: rgba(var(--brand-rgb), 0.35); background: rgba(var(--brand-rgb), 0.04); }
+.deal-label {
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .3px;
+  text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 14px;
+}
+.deal-can .deal-label { color: var(--brand); }
+.deal-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.deal-col li { color: var(--muted); font-size: .96rem; line-height: 1.55; padding-left: 22px; position: relative; }
+.deal-cant li::before { content: "—"; position: absolute; left: 0; color: var(--faint); }
+.deal-can li { color: var(--text); }
+.deal-can li::before { content: "+"; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+
+/* ---- roles ---- */
+.roles-head { margin-bottom: 20px; }
+.roles-head h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; letter-spacing: -.5px; }
+.roles-head p { color: var(--muted); margin-top: 8px; max-width: 62ch; }
+
+.role-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px;
+  margin-bottom: 56px;
+}
+.role {
+  display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); padding: 24px 26px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.role:hover { border-color: var(--brand); transform: translateY(-3px); }
+
+.role-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.role-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; letter-spacing: -.3px; }
+.role-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.role-tag {
+  font-family: var(--mono); font-size: .68rem; color: var(--faint);
+  border: 1px solid var(--border); border-radius: 5px; padding: 2px 7px; white-space: nowrap;
+}
+.role-does { color: var(--muted); font-size: .95rem; line-height: 1.55; }
+
+.role-learn {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 14px 0; margin: 2px 0;
+}
+.role-learn-label {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .3px; text-transform: uppercase;
+  color: var(--accent); display: block; margin-bottom: 9px;
+}
+.role-learn ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.role-learn li { color: var(--text); font-size: .9rem; line-height: 1.4; padding-left: 18px; position: relative; }
+.role-learn li::before { content: "+"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+.role-fit { color: var(--faint); font-size: .86rem; line-height: 1.5; font-style: italic; }
+
+/* ---- what we look for ---- */
+.look { margin-bottom: 56px; }
+.look h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; letter-spacing: -.5px; margin-bottom: 20px; }
+.look-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.look-item {
+  display: flex; flex-direction: column; gap: 6px;
+  border-left: 2px solid var(--brand); padding: 4px 0 4px 16px;
+}
+.look-item b { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; letter-spacing: -.2px; }
+.look-item span { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+
+/* ---- how to join ---- */
+.join {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface-2); padding: 30px 32px;
+}
+.join h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; letter-spacing: -.4px; }
+.join-steps { margin: 18px 0 24px; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; }
+.join-steps li { color: var(--muted); line-height: 1.6; padding-left: 6px; }
+.join-steps a { color: var(--brand); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.join-steps a:hover { border-bottom-color: var(--brand); }
+.join-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .deal { grid-template-columns: 1fr; }
+  .join { padding: 24px 22px; }
+}

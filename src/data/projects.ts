@@ -32,7 +32,7 @@ export const AREAS: ContribArea[] = [
     projects: [
       {
         name: 'StormBreaker kernels',
-        desc: 'Per-device Linux kernel trees. LTS bumps, CLO merges, and real backports — the core of what we do.',
+        desc: 'Per-device Linux kernel trees. LTS bumps, CLO merges, and real backports. The core of what we do.',
         stack: ['C', 'Linux', 'device'],
         href: SB,
       },
@@ -44,7 +44,7 @@ export const AREAS: ContribArea[] = [
       },
       {
         name: 'sworkflow',
-        desc: 'The tool that configures, compiles and packages our kernels — device configs, Clang builds, AnyKernel3.',
+        desc: 'The tool that configures, compiles and packages our kernels: device configs, Clang builds, AnyKernel3.',
         stack: ['Shell', 'tooling'],
         href: `${SB}/sworkflow`,
       },
@@ -65,7 +65,7 @@ export const AREAS: ContribArea[] = [
       },
       {
         name: 'frameworks_base',
-        desc: 'Framework-level customizations — the guts of the platform, where the OS behaviour actually lives.',
+        desc: 'Framework-level customizations. The guts of the platform, where the OS behaviour actually lives.',
         stack: ['Java'],
         href: `${PVOT}/platform_frameworks_base`,
       },
@@ -85,7 +85,7 @@ export const AREAS: ContribArea[] = [
     projects: [
       {
         name: 'Messages',
-        desc: 'A de-Googled SMS app — minimal, maintainable, no bloat. Our most-used app.',
+        desc: 'A de-Googled SMS app that stays minimal, maintainable, and free of bloat. Our most-used app.',
         stack: ['Kotlin'],
         href: `${PVOT}/Messages`,
         star: '126★',
@@ -98,13 +98,13 @@ export const AREAS: ContribArea[] = [
       },
       {
         name: 'PvotGallery',
-        desc: 'A private, offline photo gallery — your pictures stay yours.',
+        desc: 'A private, offline photo gallery. Your pictures stay yours.',
         stack: ['Kotlin'],
         href: `${PVOT}/PvotGallery`,
       },
       {
         name: 'SB Kernel Manager',
-        desc: 'Update and tune StormBreaker kernels from your phone. Early days — plenty to build.',
+        desc: 'Update and tune StormBreaker kernels from your phone. Early days, plenty to build.',
         stack: ['Kotlin', 'Compose'],
         href: `${SB}/SB-kernel-Manager`,
         wip: true,
@@ -123,7 +123,7 @@ export const AREAS: ContribArea[] = [
       },
       {
         name: 'PvotClock',
-        desc: 'Clock, alarms and timers — clean and dependency-light.',
+        desc: 'Clock, alarms and timers. Clean and dependency-light.',
         stack: ['Java'],
         href: `${PVOT}/PvotClock`,
       },
@@ -143,7 +143,7 @@ export const AREAS: ContribArea[] = [
     projects: [
       {
         name: 'PvotLib',
-        desc: 'The shared Compose component library every app is built from — nav bars, pickers, and a long list of pieces still to build.',
+        desc: 'The shared Compose component library every app is built from. Nav bars, pickers, and a long list of pieces still to build.',
         stack: ['Compose', 'design'],
         href: `${PVOT}/PvotLib`,
       },
@@ -157,7 +157,7 @@ export const AREAS: ContribArea[] = [
     projects: [
       {
         name: 'This website',
-        desc: 'The site you are on — Astro, static, open. Copy fixes and design tweaks welcome.',
+        desc: 'The site you are on. Astro, static, open. Copy fixes and design tweaks welcome.',
         stack: ['Astro', 'web'],
         href: SB,
       },

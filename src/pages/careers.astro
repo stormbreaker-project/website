@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SOCIAL } from '../config/site';
+import '../styles/careers.css';
+
+// SCAFFOLD: placeholder careers content. Copy will be rewritten later — the
+// structure is the point. Voluntary, unpaid, learning-first.
+
+// The honest trade: what we can't give vs what we genuinely can.
+const cannot = [
+  'A salary, equity, or any money. StormBreaker is self-funded and always has been.',
+  'A 9-to-5, a manager, or a contract. This is volunteer, open-source work.',
+  'Deadlines that come before your studies, job, or life. Those come first.',
+];
+const can = [
+  'Real mentorship from people who ship kernels, an OS, and apps used by a million-plus.',
+  'Code that actually ships to real devices, not toy projects or busywork.',
+  'A public portfolio of serious low-level and Android work with your name on it.',
+  'Ownership. Pick up a device, an app, or a subsystem and make it yours.',
+  'A place to learn things most courses never touch: kernels, AOSP internals, toolchains.',
+];
+
+// The layers you could join, framed as "what you'd do + what you'd learn".
+type Role = {
+  title: string;
+  does: string;
+  learn: string[];
+  fit: string;
+  tags: string[];
+};
+const roles: Role[] = [
+  {
+    title: 'Kernel Developer',
+    does: 'Maintain device kernel trees: LTS bumps, CLO merges, backports, and chasing down regressions on real hardware.',
+    learn: ['Real Linux kernel development', 'ARM64 / device debugging', 'Reading and porting upstream patches'],
+    fit: 'You know some C and are not scared of a stack trace. Kernel experience is a bonus, not a requirement.',
+    tags: ['C', 'Linux', 'kernel'],
+  },
+  {
+    title: 'ROM / Framework Engineer',
+    does: 'Work on PVOT OS, our AOSP/LineageOS fork. Framework customizations, theming, and keeping the build green.',
+    learn: ['The AOSP build system end to end', 'Android framework internals', 'Working in a huge codebase'],
+    fit: 'You are comfortable with Java and patient with long builds. Curiosity beats prior AOSP experience.',
+    tags: ['AOSP', 'Java', 'C++'],
+  },
+  {
+    title: 'App Developer',
+    does: 'Build and maintain our de-Googled app suite in Kotlin and Compose: Messages, Gallery, Aperture, and more.',
+    learn: ['Modern Android & Jetpack Compose', 'Shipping and maintaining real apps', 'Privacy-first engineering'],
+    fit: 'You know some Kotlin, or you know Java and want to learn Compose. We will help you get there.',
+    tags: ['Kotlin', 'Compose'],
+  },
+  {
+    title: 'UI/UX & Design Systems',
+    does: 'Grow PvotLib, the shared component library every app is built from: components, tokens, motion, docs.',
+    learn: ['Building a real design system', 'Compose theming & API design', 'Design that survives contact with code'],
+    fit: 'You care how things look and feel, and you can turn a design into a reusable component.',
+    tags: ['Compose', 'design'],
+  },
+  {
+    title: 'Web & Docs',
+    does: 'Improve this website and the docs across every repo. The writing that makes everything else usable.',
+    learn: ['Astro & modern static web', 'Technical writing that people actually read', 'Turning tribal knowledge into docs'],
+    fit: 'You can write clearly, or you know a bit of web. Great first way in if you are new.',
+    tags: ['Astro', 'writing'],
+  },
+  {
+    title: 'Device Maintainer / Tester',
+    does: 'Bring up and test builds on real devices, reproduce bugs, gather logs, and triage what comes in.',
+    learn: ['Device bring-up from scratch', 'Debugging on real hardware', 'How a release actually happens'],
+    fit: 'You have a device or two and the patience to flash, break, log, and repeat.',
+    tags: ['testing', 'triage'],
+  },
+];
+---
+<Base
+  title="Careers · Team StormBreaker"
+  description="Join Team StormBreaker. Volunteer, unpaid, and self-funded, but you will learn things most jobs never teach. Kernels, OS, apps, and more."
+>
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="section-head left">
+          <span class="kicker">// careers</span>
+          <h2>Join the team.</h2>
+          <p>
+            We are a self-funded, open-source collective. We cannot pay you, but if you want to learn
+            how Android really works, from the kernel up, there are very few better places to do it.
+          </p>
+        </div>
+
+        <!-- The honest trade -->
+        <div class="deal">
+          <div class="deal-col deal-cant">
+            <span class="deal-label">What we can’t offer</span>
+            <ul>
+              {cannot.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>
+          <div class="deal-col deal-can">
+            <span class="deal-label">What we can</span>
+            <ul>
+              {can.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Roles -->
+        <div class="roles-head">
+          <h3>Where you’d fit</h3>
+          <p>Pick the layer that excites you. None of these need a résumé, just curiosity and follow-through.</p>
+        </div>
+
+        <div class="role-grid" data-stagger>
+          {roles.map((r) => (
+            <div class="role reveal">
+              <div class="role-top">
+                <h4 class="role-title">{r.title}</h4>
+                <div class="role-tags">
+                  {r.tags.map((t) => <span class="role-tag">{t}</span>)}
+                </div>
+              </div>
+              <p class="role-does">{r.does}</p>
+              <div class="role-learn">
+                <span class="role-learn-label">You’ll learn</span>
+                <ul>
+                  {r.learn.map((l) => <li>{l}</li>)}
+                </ul>
+              </div>
+              <p class="role-fit">{r.fit}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- What we look for -->
+        <div class="look">
+          <h3>What we actually look for</h3>
+          <div class="look-grid">
+            <div class="look-item"><b>Curiosity</b><span>You want to know how things work, not just that they do.</span></div>
+            <div class="look-item"><b>Follow-through</b><span>You finish what you pick up, or you say when you can’t.</span></div>
+            <div class="look-item"><b>Kindness</b><span>You are patient with people and generous with what you know.</span></div>
+            <div class="look-item"><b>Consistency</b><span>A little, often, beats a burst that vanishes.</span></div>
+          </div>
+        </div>
+
+        <!-- How to join -->
+        <div class="join">
+          <h3>How to join</h3>
+          <ol class="join-steps">
+            <li>Find a project on the <a href="/contribute/projects/">where to contribute</a> page and send a first patch.</li>
+            <li>Say hi on <a href={SOCIAL.telegram} target="_blank" rel="noopener">Telegram</a> or <a href={SOCIAL.discord} target="_blank" rel="noopener">Discord</a> and tell us what you want to learn.</li>
+            <li>Stick around. Maintainers are just contributors who kept showing up.</li>
+          </ol>
+          <div class="join-cta">
+            <a class="btn btn-primary" href={SOCIAL.telegram} target="_blank" rel="noopener">Reach out on Telegram <Icon name="arrowRight" /></a>
+            <a class="btn btn-ghost" href={`mailto:${SOCIAL.email}?subject=${encodeURIComponent('Joining Team StormBreaker')}`}>Or email us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

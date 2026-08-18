@@ -46,6 +46,7 @@ export const NAV: NavItem[] = [
     items: [
       { label: 'About Team StormBreaker', href: '/about/', icon: 'about' },
       { label: 'Maintainers', href: '/about/maintainers/', icon: 'maintainers' },
+      { label: 'Join the team', href: '/careers/', icon: 'guide' },
     ],
   },
   {
