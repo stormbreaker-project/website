@@ -23,6 +23,10 @@
 .banner-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: banner-pulse 2.4s infinite; }
 @keyframes banner-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
 
+/* Early / in-development variant: brand-tinted, not the "active" teal. */
+.banner-badge-early { color: var(--brand); border-color: rgba(var(--brand-rgb),0.35); background: rgba(var(--brand-rgb),0.1); }
+.banner-badge-early .dot { background: var(--brand); box-shadow: 0 0 8px var(--glow); }
+
 .banner p { color: var(--muted); margin: 12px 0 16px; }
 .banner-cmd {
   display: inline-block; font-family: var(--mono); font-size: .82rem; color: var(--brand);
